@@ -1,29 +1,51 @@
+// src/components/slides/AISlide.jsx
 import React from 'react';
-import aiDiagram from '../../assets/images/bedrock.PNG';
+import './Slides.css';
+
+import aiDiagram1 from '../../assets/images/cheetir.png';
+import aiDemo2 from '../../assets/images/cheetir.png';
 
 export default function AISlide() {
+  const paragraphs = [
+    `At ADS, we combine research-grade AI methodologies with production-focused engineering to deliver intelligent automation and decision support. Our expertise spans reinforcement learning agents, generative adversarial networks (GANs), and integrated AI + IoT systems.`,
+    `For instance, we have deployed reinforcement-learning–driven robotic controls and GAN-powered image synthesis pipelines that streamline content generation. By partnering with cloud providers (AWS SageMaker, Lambda, Bedrock) and on-prem infrastructures, we integrate AI components seamlessly into existing workflows—improving efficiency, reducing human error, and unlocking new capabilities that scale with your business.`
+  ];
+
+  const imageEntries = [
+    {
+      src: aiDiagram1,
+      alt: 'Reinforcement learning architecture',
+      caption: 'RL Architecture for Robotic Arm Control',
+    },
+    {
+      src: aiDemo2,
+      alt: 'GAN image synthesis example',
+      caption: 'GAN-Based Image Synthesis Pipeline',
+    },
+  ];
+
   return (
     <div className="slide-content">
-      {/* TITLE ROW */}
       <h2 className="slide-title">Artificial Intelligence</h2>
-
-      {/* BODY ROW: text on left, image on right */}
       <div className="slide-body">
-        {/* Left column: descriptive text */}
         <div className="slide-text">
-          <p>
-            Designing AI architectures (reinforcement learning, recommendation engines,
-            knowledge graphs) that scale in production environments.
-          </p>
+          {paragraphs.map((text, idx) => (
+            <p key={idx}>{text}</p>
+          ))}
         </div>
-
-        {/* Right column: image */}
         <div className="slide-image-wrapper">
-          <img
-            src={aiDiagram}
-            alt="AI architecture diagram"
-            className="slide-image"
-          />
+          {imageEntries.map((entry, idx) => (
+            <div key={idx} className="image-pair">
+              <img
+                src={entry.src}
+                alt={entry.alt}
+                className="slide-image"
+              />
+              {entry.caption && (
+                <div className="image-caption">{entry.caption}</div>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </div>

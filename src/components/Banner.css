@@ -1,152 +1,50 @@
 /* src/components/Banner.css */
 
-/* ============================================================================ */
-/* 1. BANNER WRAPPER                                                             */
-/*    - spans full viewport width                                                 */
-/*    - optional vertical padding                                                  */
-/* ============================================================================ */
+/* ----------------------------------------------------------------------------
+   1. BANNER WRAPPER
+      - spans full viewport width
+      - optional vertical padding
+   ---------------------------------------------------------------------------- */
 .banner-wrapper {
-  width: 100vw;             /* take the full width of the browser */
-  margin: 0;                /* no auto‐centering */
-  padding: 16px 0;          /* OPTIONAL top/bottom padding (remove if you want none) */
+  width: 100vw;            /* full browser width */
+  margin: 0;
+  padding: 16px 0;         /* optional top/bottom padding */
   box-sizing: border-box;
-  text-align: center;       /* center contents horizontally */
+  text-align: center;      /* center children horizontally */
 }
 
-/* ============================================================================ */
-/* 2. BANNER SLIDE                                                               */
-/*    - fixed 600px height                                                       */
-/*    - no internal padding (so height math is simple)                            */
-/*    - stacking context for slide‐content                                         */
-/* ============================================================================ */
+/* ----------------------------------------------------------------------------
+   2. BANNER SLIDE
+      - fixed height of 600px
+      - background‐color passed inline from Banner.jsx
+      - no extra padding (keeps height math simple)
+   ---------------------------------------------------------------------------- */
 .banner-slide {
-  width: 100%;              
-  height: 600px;            /* TOTAL banner height */
-  background-color: inherit;/* BG color passed inline from Banner.jsx */
-  border-radius: 0;         /* use 8px if you want rounded corners */
-  overflow: hidden;         /* clip any overflow strictly */
-  box-sizing: border-box;
-  position: relative;       /* if you ever need absolute children */
-}
-
-/* ============================================================================ */
-/* 3. SLIDE-CONTENT (each slide’s root)                                           */
-/*    - must be a direct child of .banner-slide                                   */
-/*    - fill exactly 600px height                                                  */
-/* ============================================================================ */
-.slide-content {
   width: 100%;
-  height: 100%;             /* exactly 600px (fills .banner-slide) */
+  height: 600px;           /* total banner height */
+  background-color: inherit;
+  border-radius: 0;        /* or 8px if you want rounded corners */
+  overflow: hidden;        /* clip any overflow */
   box-sizing: border-box;
+  position: relative;      /* allow absolutely‐positioned children if needed */
 }
 
-/* ============================================================================ */
-/* 4. SLIDE TITLE: fixed‐height 80px row                                           */
-/*    - exactly 80px tall                                                          */
-/* ============================================================================ */
-.slide-title {
-  width: 100%;
-  height: 96px;            /* 80px for text + 16px padding */
-  line-height: 80px;       /* vertically center text in the first 80px */
-  margin: 0;
-  padding: 0 0 px 0;      /* 16px of padding underneath */
-  font-size: 3rem;
-  font-weight: 600;
-  color: #fff;
-  text-align: center;
-  box-sizing: border-box;
-}
-
-/* ============================================================================ */
-/* 5. SLIDE BODY: occupies remaining 520px (600 − 80)                              */
-/*    - display flex for side‐by‐side layout                                        */
-/*    - no padding or margin                                                       */
-/* ============================================================================ */
-.slide-body {
-  display: flex;
-  width: 100%;
-  height: calc(100% - 80px);/* exactly 520px */
-  margin: 0;                /* no extra space */
-  padding: 0;               /* no padding */
-  box-sizing: border-box;
-}
-
-/* ============================================================================ */
-/* 6. SLIDE TEXT (LEFT COLUMN)                                                     */
-/*    - auto width: flex:1                                                         */
-/*    - internal padding for readability                                           */
-/* ============================================================================ */
-.slide-text {
-  flex: 1;                        /* take all leftover width after image */
-  box-sizing: border-box;
-  padding: 24px 16px 24px 24px;   /* top, right, bottom, left */
-  margin: 0;                      /* no default margins */
-  overflow-y: auto;               /* scroll if more text than 520px */
-  color: #fff;
-}
-
-.slide-text p {
-  margin: 0;
-  font-size: 1.25rem;             /* adjust as needed */
-  line-height: 1.6;
-}
-
-/* ============================================================================ */
-/* 7. SLIDE IMAGE WRAPPER (RIGHT COLUMN)                                           */
-/*    - fixed 520px height                                                          */
-/*    - width determined by image’s aspect ratio via img { width:auto }            */
-/*    - no padding/margin                                                          */
-/* ============================================================================ */
-/* 7. SLIDE IMAGE WRAPPER (RIGHT COLUMN): now reserves 16px padding at bottom */
-.slide-image-wrapper {
-  display: flex;
-  align-items: center;      
-  justify-content: center;  
-  height: calc(100% - 16px); /* 520px (slide-body) minus 16px padding = 504px */
-  box-sizing: border-box;
-  overflow: hidden;    
-  padding-top: 30;     
-  padding-bottom: 30px;     /* the extra space under the image */
-  padding-right: 24px;
-}
-
-/* 8. SLIDE IMAGE: fill wrapper’s reduced height (504px), maintain aspect ratio */
-.slide-image {
-  height: 100%;             
-  width: auto;              
-  object-fit: contain;      
-  border-radius: 6px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  margin: 0;                
-}
-
-/* If you want the image to crop and fill instead, swap to:
-.slide-image {
-  height: 100%;
-  width: auto;
-  object-fit: cover;
-  border-radius: 6px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-  margin: 0 24px 0 0;
-}
-*/
-
-/* ============================================================================ */
-/* 9. INDICATOR DOTS                                                               */
-/*    - centered below the .banner-slide                                            */
-/* ============================================================================ */
+/* ----------------------------------------------------------------------------
+   3. INDICATOR DOTS
+      - centered below the banner-slide
+   ---------------------------------------------------------------------------- */
 .banner-indicators {
   display: flex;
   justify-content: center;
-  margin-top: 16px;               /* space above buttons */
+  margin-top: 16px;        /* space above dots */
   padding: 0;
   box-sizing: border-box;
 }
 
 .indicator-dot {
-  width: 18px;                    /* clickable size */
+  width: 18px;           
   height: 18px;
-  margin: 0 10px;                 /* space between dots */
+  margin: 0 10px;        
   border: none;
   border-radius: 50%;
   background-color: #bbb;
@@ -155,21 +53,22 @@
 }
 
 .indicator-dot:hover {
-  transform: scale(1.3);          /* enlarge on hover */
+  transform: scale(1.3);
 }
 
 .indicator-dot.active {
-  background-color: #444;         /* dark when active */
-  transform: scale(1.4);          /* slightly larger */
+  background-color: #444;
+  transform: scale(1.4);
 }
 
-/* ============================================================================ */
-/* 10. OPTIONAL GLOBAL RESET                                                        */
-/*    - remove default html/body margins/padding                                    */
-/* ============================================================================ */
+/* ----------------------------------------------------------------------------
+   4. GLOBAL RESET
+      - remove default html/body margins/padding
+   ---------------------------------------------------------------------------- */
 html,
 body {
   margin: 0;
   padding: 0;
   width: 100%;
+  box-sizing: border-box;
 }

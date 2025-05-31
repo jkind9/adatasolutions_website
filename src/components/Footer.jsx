@@ -1,8 +1,6 @@
 // src/components/Banner.jsx
 import React, { useState, useEffect } from 'react';
 import './Banner.css';
-import './slides/Slides.css'; // slide‐specific styles
-
 import ComputerVisionSlide from './slides/ComputerVisionSlide';
 import MachineLearningSlide from './slides/MachineLearningSlide';
 import NLPSlide from './slides/NLPSlide';
@@ -11,8 +9,8 @@ import AISlide from './slides/AISlide';
 const slides = [
   { Component: ComputerVisionSlide, bgColor: '#3498db' },
   { Component: MachineLearningSlide, bgColor: '#e74c3c' },
-  { Component: NLPSlide,           bgColor: '#2ecc71' },
-  { Component: AISlide,           bgColor: '#9b59b6' },
+  { Component: NLPSlide,         bgColor: '#2ecc71' },
+  { Component: AISlide,         bgColor: '#9b59b6' },
 ];
 
 export default function Banner() {
@@ -21,7 +19,7 @@ export default function Banner() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 8000); // change slide every 8 seconds
+    }, 15000);
     return () => clearInterval(timer);
   }, []);
 
