@@ -1,0 +1,107 @@
+/* src/styles/HeaderSeparated.css */
+
+/* Reset any default margins */
+.header-root {
+  background-color: #010101;
+  color: #000000;
+  box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1100;
+}
+/* Prevent the primary‐colour override */
+.header-root.MuiAppBar-colorPrimary {
+  background-color: #00000085 !important;
+}
+
+.header-toolbar {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+
+/* Increase padding on small screens, larger on md+ */
+@media (min-width: 600px) {
+  .header-toolbar {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+@media (min-width: 900px) {
+  .header-toolbar {
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+  }
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-logo {
+  height: 48px;
+  width: 48px;
+  object-fit: contain;
+  margin-right: 16px;
+}
+
+.header-text-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  color: #d8cfcf;
+  margin: 0;
+}
+
+.header-tagline {
+  font-size: 0.75rem;
+  font-style: bold;
+  color: #d8cfcf;
+  margin-top: 4px;
+}
+
+.header-links {
+  display: none;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-link-btn {
+  text-transform: none !important;
+  color: inherit !important;
+}
+
+.header-link-outlined {
+  text-transform: none !important;
+  border-color: #d8cfcf !important;
+  color: #d8cfcf !important;
+}
+.header-link-outlined:hover {
+  background-color: rgba(25, 118, 210, 0.08) !important;
+  border-color: #d8cfcf !important;
+}
+
+/* Show links on md+ screens (min-width: 900px) */
+@media (min-width: 900px) {
+  .header-links {
+    display: flex;
+  }
+}
+
+.header-menu-icon {
+  display: flex !important;
+}
+/* Hide menu icon on md+ screens */
+@media (min-width: 900px) {
+  .header-menu-icon {
+    display: none !important;
+  }
+}

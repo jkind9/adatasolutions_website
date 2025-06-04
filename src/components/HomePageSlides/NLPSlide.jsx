@@ -1,6 +1,6 @@
 // src/components/slides/NLPSlide.jsx
 import React from 'react';
-import '../Styles/Slides.css';
+import '../../styles/Slides.css';
 import SlideContent from './SlideContent';
 import nlpDemo1 from '../../assets/images/NLP.png';
 

@@ -1,6 +1,6 @@
 // src/components/slides/ImageSection.jsx
 import React from 'react';
-import '../Styles/Slides.css';
+import '../../styles/Slides.css';
 
 export default function ImageSection({ images }) {
   const gridStyle = { '--image-count': images.length };

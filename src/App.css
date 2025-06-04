@@ -1,3 +1,16 @@
+html, 
+body, 
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;        /* Make sure the root can be 100% tall */
+}
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;      /* Fill the entire viewport (since #root is 100% tall) */
+  overflow: hidden;  /* Prevent overall page scrolling—only inner areas scroll if needed */
+}
 .App {
   text-align: center;
 }

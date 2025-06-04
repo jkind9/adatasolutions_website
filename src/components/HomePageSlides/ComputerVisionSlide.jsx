@@ -1,5 +1,5 @@
 // src/components/slides/ComputerVisionSlide.jsx
-import '../Styles/Slides.css';
+import '../../styles/Slides.css';
 import SlideContent from './SlideContent';
 
 import cvExample1 from '../../assets/images/cheetir.png';

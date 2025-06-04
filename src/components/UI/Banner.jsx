@@ -1,16 +1,20 @@
+// src/components/Banner.jsx
+
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import '../Styles/Banner.css';
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import '../../styles/Banner.css';
 
 export default function Banner({ slides = [], interval = 15000 }) {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
     if (slides.length === 0) return;
-    const timer = setInterval(
-      () => setCurrent((i) => (i + 1) % slides.length),
-      interval,
-    );
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, interval);
     return () => clearInterval(timer);
   }, [slides.length, interval]);
 
@@ -19,22 +23,28 @@ export default function Banner({ slides = [], interval = 15000 }) {
   const { Component: SlideComponent, props = {}, bgColor } = slides[current];
 
   return (
-    <div className="banner-wrapper">
-      <div className="banner-slide" style={{ backgroundColor: bgColor }}>
+    <Box className="banner-wrapper">
+      <Box
+        className="banner-slide"
+        sx={{ backgroundColor: bgColor || 'transparent' }}
+      >
         <SlideComponent {...props} />
-      </div>
+      </Box>
 
-      <div className="banner-indicators">
+      <Box className="banner-indicators">
         {slides.map((_, idx) => (
-          <button
+          <IconButton
             key={idx}
-            className={`indicator-dot ${idx === current ? 'active' : ''}`}
+            size="small"
             onClick={() => setCurrent(idx)}
             aria-label={`Show slide ${idx + 1}`}
-          />
+            className={`indicator-dot ${idx === current ? 'active' : ''}`}
+          >
+            <FiberManualRecordIcon fontSize="inherit" />
+          </IconButton>
         ))}
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 }
 
@@ -44,7 +54,7 @@ Banner.propTypes = {
       Component: PropTypes.elementType.isRequired,
       props: PropTypes.object,
       bgColor: PropTypes.string,
-    }),
+    })
   ).isRequired,
   interval: PropTypes.number,
 };

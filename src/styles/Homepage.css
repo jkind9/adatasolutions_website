@@ -1,0 +1,135 @@
+/* src/styles/Homepage.css */
+
+/* 1) Make container fill available space between header and footer */
+.homepage-container {
+  width: 100vw;
+  min-height: calc(100vh - 64px - 48px);
+  /* background image */
+  background-image: url('../assets/images/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* prevents page‐level scroll */
+}
+
+/* 2) Main content area flex‐grows and scrolls if needed */
+.homepage-main {
+  flex-grow: 1;
+  overflow-y: auto;    /* scroll internally if content is taller */
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+  box-sizing: border-box;
+}
+
+/* 3) Intro section */
+.homepage-intro {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.homepage-intro h2 {
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  margin-bottom: 1rem;
+  color: #ffffff;
+  word-break: break-word;
+}
+
+.homepage-intro p {
+  font-size: clamp(1rem, 3vw, 1.125rem);
+  margin-bottom: 2rem;
+  color: #ffffff;
+  word-break: break-word;
+}
+
+/* 4) Feature cards wrapper */
+.homepage-features-wrapper {
+  padding: 2rem 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+}
+
+/* 5) Cards container: flex + wrap + responsive stacking */
+.homepage-features {
+  display: flex;
+  justify-content: space-around;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* On very narrow screens, stack cards vertically */
+@media (max-width: 600px) {
+  .homepage-features {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+/* 6) Individual card: allow shrink, set a smaller min-width */
+.homepage-card {
+  flex: 1 1 200px;    /* can shrink down to 200px */
+  min-width: 180px;   /* won’t shrink below 180px, then it’ll wrap/stack */
+  max-width: 320px;   /* won’t grow past 320px */
+  background-color: rgba(159, 41, 41, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  min-height: 0;      /* allow content to wrap inside */
+}
+
+/* 7) Card hover effect */
+.homepage-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 8) Card content: centered column */
+.homepage-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* 9) Card headings & text */
+.homepage-card-content h3 {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  color: #7d4343;
+  word-break: break-word;
+}
+
+.homepage-card-content p {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #4a0101;
+  word-break: break-word;
+}
+
+/* 10) Responsive tweaks for very small screens */
+@media (max-width: 480px) {
+  .homepage-main {
+    padding: 2rem 0.5rem;
+    width: 95%;
+  }
+  .homepage-intro h2 {
+    font-size: 1.75rem;
+  }
+  .homepage-intro p {
+    font-size: 1rem;
+  }
+  .homepage-card-content {
+    padding: 1.5rem;
+  }
+  .homepage-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}

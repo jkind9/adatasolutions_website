@@ -1,33 +1,35 @@
-import Banner from '../ReusableComponents/Banner';
+// src/components/Footer.jsx
+import React from 'react';
+import Banner from '../UI/Banner';
 import ReferenceQuote from './ReferenceQuote';
-import '../Styles/Footer.css';
+import '../../styles/Footer.css';
 
 const slides = [
   {
-    Component: ReferenceQuote,          // pass the component *function*
+    Component: ReferenceQuote,
     props: {
-      quote:
-        'An asset to any business especially in the AI space',
-      author: 'John White, Ex-CEO @ Chetwood Financial Limited ',
+      quote: 'An asset to any business especially in the AI space',
+      author: 'John White, Ex-CTO @ Chetwood Financial Limited',
     },
     bgColor: '#004080',
   },
   {
-    Component: ReferenceQuote,          // pass the component *function*
+    Component: ReferenceQuote,
     props: {
-      quote:
-        'A bit of a knob',
-      author: 'Rakeem Morgan-Cornibert, Head of Systems Analytics @ Intrum ',
+      quote: 'A bit of a knob',
+      author:
+        'Rakeem Morgan-Cornibert, Head of Systems Analytics @ Intrum',
     },
     bgColor: '#004080',
-  }
+  },
 ];
 
 export default function Footer() {
   return (
-    /*  add the class ↓↓↓  */
     <footer className="footer">
-      <Banner slides={slides} interval={15000} />
+      <div className="footer-inner">
+        <Banner slides={slides} interval={15000} />
+      </div>
     </footer>
   );
 }

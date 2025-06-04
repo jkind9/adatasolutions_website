@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Styles/Slides.css';
+import '../../styles/Slides.css';
 import ImageSection from './ImageSection';
 
 /**

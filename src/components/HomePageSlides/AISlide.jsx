@@ -1,6 +1,6 @@
 
 import React from 'react';
-import '../Styles/Slides.css';
+import '../../styles/Slides.css';
 import SlideContent from './SlideContent';
 import cvExample1 from '../../assets/images/agent.png';
 import cvExample2 from '../../assets/images/AIEvolution.png';

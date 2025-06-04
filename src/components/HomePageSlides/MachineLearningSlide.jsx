@@ -1,5 +1,5 @@
 // src/components/slides/MachineLearningSlide.jsx
-import '../Styles/Slides.css';
+import '../../styles/Slides.css';
 import SlideContent from './SlideContent';
 import mlChart from '../../assets/images/cheetir.png';
 import mlGraph from '../../assets/images/cheetir.png';
