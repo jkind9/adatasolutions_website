@@ -1,9 +1,8 @@
 // src/components/slides/NLPSlide.jsx
 import React from 'react';
-import './Slides.css';
-
-import nlpDemo1 from '../../assets/images/cheetir.png';
-import nlpDemo2 from '../../assets/images/cheetir.png';
+import '../Styles/Slides.css';
+import SlideContent from './SlideContent';
+import nlpDemo1 from '../../assets/images/NLP.png';
 
 export default function NLPSlide() {
   const paragraphs = [
@@ -17,37 +16,14 @@ export default function NLPSlide() {
       alt: 'Chatbot architecture diagram',
       caption: 'End-to-End Chatbot Architecture',
     },
-    {
-      src: nlpDemo2,
-      alt: 'Sentiment analysis model performance',
-      caption: 'BERT Sentiment Analysis Performance Chart',
-    },
+
   ];
 
   return (
-    <div className="slide-content">
-      <h2 className="slide-title">Natural Language Processing</h2>
-      <div className="slide-body">
-        <div className="slide-text">
-          {paragraphs.map((text, idx) => (
-            <p key={idx}>{text}</p>
-          ))}
-        </div>
-        <div className="slide-image-wrapper">
-          {imageEntries.map((entry, idx) => (
-            <div key={idx} className="image-pair">
-              <img
-                src={entry.src}
-                alt={entry.alt}
-                className="slide-image"
-              />
-              {entry.caption && (
-                <div className="image-caption">{entry.caption}</div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
+    <SlideContent
+    title="NLP"
+    paragraphs={paragraphs}
+    images={imageEntries}
+    />
   );
 }

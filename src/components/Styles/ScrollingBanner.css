@@ -1,0 +1,76 @@
+/* ============================================================================
+   SLIDES.CSS (updated for a 10vh‐tall header)
+   ----------------------------------------------------------------------------
+   1) We assume the HEADER (logo + “James Alexander” bar) is exactly 10vh tall,
+      so each slide’s outer container (“.slide-content”) should be 90vh tall.
+   2) Inside that 90vh, the title row takes its own height (we’ll fix it to 80px),
+      and the remaining area (90vh − 80px) is given to the slide body.
+   3) Only the text inside the body scrolls if it overflows; no other part ever
+      pushes past the bottom of the viewport.
+
+   Copy & paste this into your Slides.css (replacing any prior “slide” rules).
+   ============================================================================ */
+
+/* ----------------------------------------------------------------------------
+   0) GLOBAL RESET: remove default margins/padding; hide page‐level overflow
+   ---------------------------------------------------------------------------- */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;             /* fill viewport */
+  overflow: hidden;         /* prevent the page from scrolling */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ----------------------------------------------------------------------------
+   2) EACH “SLIDE” SECTION (if you’re wrapping slides in .scroll-section):
+      - We still allow a small margin + padding around, but never let the
+        inner slide overflow. Remove or adjust these margins/paddings as desired.
+   ---------------------------------------------------------------------------- */
+.scroll-section {
+  scroll-snap-align: start;
+  width: 100%;
+  
+  /* Optional breathing room above & below each slide */
+  margin: 20px 0;             /* 20px above + 20px below */
+  padding: 40px 0;            /* 40px “pad” above + below content */
+
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+.scroll-section.visible {
+  opacity: 1;
+}
+
+/* ----------------------------------------------------------------------------
+   8) OPTIONAL SCROLLBAR STYLING: lighten scrollbar on .scroll-container
+   ---------------------------------------------------------------------------- */
+.scroll-container {
+  /* 100 vh minus 10 vh header  →  90 vh */
+  height: calc(100vh - 10vh);
+  overflow-y: scroll;               /* still scrolls, but bar is invisible */
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* border: 10px solid black; */
+
+  /* Hide scrollbar (cross-browser) */
+  -ms-overflow-style: none;   /* IE / old Edge */
+  scrollbar-width: none;      /* Firefox */
+}
+.scroll-container::-webkit-scrollbar {      /* Chrome / Safari */
+  display: none;
+}
+
+.block {
+    display: inline-block;
+    vertical-align: top;
+    max-width: 140px;
+    background-color: lightgrey;
+    text-align: center;
+}
+

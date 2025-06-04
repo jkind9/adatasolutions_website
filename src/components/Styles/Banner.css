@@ -1,0 +1,47 @@
+/* src/components/Banner.css */
+
+/* ----------------------------------------------------------------------------
+   1. BANNER WRAPPER
+      - spans full viewport width
+      - optional vertical padding
+   ---------------------------------------------------------------------------- */
+.banner-wrapper {
+  width: 100%;        /* was 100vw */
+  overflow-x: hidden; /* belt-and-braces */
+  margin: 0;
+  padding: 10px 0;         /* optional top/bottom padding */
+  box-sizing: border-box;
+  text-align: center;      /* center children horizontally */
+}
+
+/* ----------------------------------------------------------------------------
+   3. INDICATOR DOTS
+      - centered below the banner-slide
+   ---------------------------------------------------------------------------- */
+.banner-indicators {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.indicator-dot {
+  width: 10px;           
+  height: 10px;
+  margin: 0 10px;        
+  border: none;
+  border-radius: 50%;
+  background-color: #a4a4a4;
+  cursor: pointer;
+  transition: background-color 1s, transform 1s;
+}
+
+.indicator-dot:hover {
+  transform: scale(1.3);
+}
+
+.indicator-dot.active {
+  background-color: #444;
+  transform: scale(1.2);
+}
+

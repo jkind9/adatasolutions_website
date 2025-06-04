@@ -1,0 +1,220 @@
+/* ============================================================================
+   SLIDES.CSS  –  polished two-column slides with centred copy & stacked images
+   Header is fixed at 10 vh → remaining viewport = 90 vh
+   Title row = 80 px; body fills the rest.
+   ============================================================================ */
+
+/* ------------------------------------------------------
+   0. GLOBAL & VARS
+   ---------------------------------------------------- */
+:root {
+  --header-h: 10vh;        /* change once, everywhere updates        */
+  --footer-h: 10vh;      /* set if you add one later          */
+  --title-h : 80px;     /* .slide-title                       */
+
+  /* optional: breathing-room for gaps + captions */
+  --image-padding: 2rem;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;        /* the page itself never scrolls          */
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+               sans-serif;
+}
+
+/* ------------------------------------------------------
+   1. SCROLL WRAPPER (snap)
+   ---------------------------------------------------- */
+.scroll-container {
+  height: calc(100vh - var(--header-h));  /* 90 vh below header           */
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+
+  /* hide its scrollbar (all browsers) */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scroll-container::-webkit-scrollbar { display: none; }
+
+/* ------------------------------------------------------
+   2. SECTION  (one per slide)
+   ---------------------------------------------------- */
+.scroll-section {
+  position: relative;                /* for vignette ::before overlay      */
+  width: 100%;
+  height: 90vh;                      /* fills the wrapper                  */
+  margin: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+  scroll-snap-align: start;
+}
+.scroll-section.visible { opacity: 1; }
+
+.scroll-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  box-shadow: inset 0 0 180px 60px rgba(0,0,0,.3); /* spread / softness */
+  mix-blend-mode: multiply;
+  z-index: 0;
+}
+.scroll-section > * { position: relative; z-index: 1; }
+/* ------------------------------------------------------
+   3. SLIDE FRAME (title + body)
+   ---------------------------------------------------- */
+/* ------------------------------------------------------
+   3a. SLIDE-IN ANIMATION  (left / right)
+   ---------------------------------------------------- */
+
+/* default: each slide's inner frame starts 110% off-screen to the right */
+.slide-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  transform: translateX(110%);
+  transition: transform 1s ease-out;
+}
+
+/* even-numbered slides start off-screen to the left instead */
+.scroll-section:nth-child(even) .slide-content {
+  transform: translateX(-20%);
+}
+
+/* when IntersectionObserver adds "visible", bring the frame into place */
+.scroll-section.visible .slide-content {
+  transform: translateX(0);
+}
+
+.slide-title {
+  flex: 0 0 60px;
+  height: 60px;
+  line-height: 60px;
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+  padding-bottom: 10px;
+}
+
+/* ------------------------------------------------------
+   4. BODY  (text left – images right)
+   ---------------------------------------------------- */
+.slide-body {
+   flex: 1 1 0;
+   display: flex;
+   gap: 3rem;                /* more breathing room between columns    */
+   padding: 0 2rem;
+   box-sizing: border-box;
+   align-items: flex-start;          /* text + image columns start together */
+}
+
+
+/* text column */
+.slide-text {
+  flex: 0 1 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: right;       /* your original intent */
+  justify-content: flex-end;      /* remove vertical centring            */
+  align-items: flex-end;          /* left-align within the column        */
+  text-align: right;                 /* paragraph text is now left-aligned  */
+  width: calc(100% - 150px);
+  box-sizing: border-box;
+  margin: 0;                        /* no auto-centering                   */
+  gap: 1.25rem;
+
+  font-size: clamp(0.8rem, 1.5vw + 0.6vh, 4rem);
+  color: #fff;
+  /* font-size: 1.2vw; */
+  margin-left: 0; 
+  margin-right: auto;
+  /* border-style: dashed;
+  border-color: #823232; */
+
+}
+
+.slide-text p { margin: 0; }
+
+/* 4b. IMAGE COLUMN */
+.image-section {
+  flex: 0 0 auto;
+  max-height: calc(
+   95vh - var(--header-h) - var(--footer-h) - var(--title-h)
+      - var(--image-padding) 
+  );
+  max-width: 40vw;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+
+  flex-direction: column;   /* stack images vertically                */
+  gap: 1rem;
+  overflow: hidden;         /* images shrink before scrolling         */
+  box-sizing: border-box;      
+  align-items: right;
+  width: fit-content;       /* modern browsers – fallback is auto      */ 
+  margin-left: auto; 
+  margin-right: 0;
+  /* border-style: dashed;
+  border-color: #e0e0e0; */
+}
+
+/* wrapper around <img> + caption */
+.image-item {
+  flex: 0 1 auto;              /* share height equally                   */
+  min-height: 0;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: right;
+  /* border-style: dashed;
+  border-color: #634141; */
+
+}
+
+/* image */
+.slide-image {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.20);
+}
+
+/* caption */
+.image-caption {
+  margin-top: 0.25rem;
+  max-width: 80%;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-align: center;
+  color: #e0e0e0;
+}
+
+/* ------------------------------------------------------
+   5. RESPONSIVE  (≤768 px)
+   ---------------------------------------------------- */
+/* @media (max-width: 768px) {
+  .slide-title { height: 60px; line-height: 60px; font-size: 2rem; }
+  .slide-body  { flex-direction: column; gap: 1.5rem; padding: 0 1rem; }
+  .slide-text  { flex: 1 1 auto; gap: 1rem;
+                 font-size: clamp(0.85rem, 2.5vw, 1.05rem); }
+  .image-section {
+    flex: 1 1 auto;
+    max-width: 100vw;
+  }
+} */

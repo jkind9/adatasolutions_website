@@ -1,7 +1,6 @@
 // src/components/slides/MachineLearningSlide.jsx
-import React from 'react';
-import './Slides.css';
-
+import '../Styles/Slides.css';
+import SlideContent from './SlideContent';
 import mlChart from '../../assets/images/cheetir.png';
 import mlGraph from '../../assets/images/cheetir.png';
 
@@ -25,29 +24,10 @@ export default function MachineLearningSlide() {
   ];
 
   return (
-    <div className="slide-content">
-      <h2 className="slide-title">Machine Learning</h2>
-      <div className="slide-body">
-        <div className="slide-text">
-          {paragraphs.map((text, idx) => (
-            <p key={idx}>{text}</p>
-          ))}
-        </div>
-        <div className="slide-image-wrapper">
-          {imageEntries.map((entry, idx) => (
-            <div key={idx} className="image-pair">
-              <img
-                src={entry.src}
-                alt={entry.alt}
-                className="slide-image"
-              />
-              {entry.caption && (
-                <div className="image-caption">{entry.caption}</div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
+      <SlideContent
+      title="Machine Learning"
+      paragraphs={paragraphs}
+      images={imageEntries}
+    />
+    );
 }
