@@ -1,8 +1,0 @@
-:root {
-  --header-h: 10vh;        /* change once, everywhere updates        */
-  --footer-h: 10vh;      /* set if you add one later          */
-  --title-h : 80px;     /* .slide-title                       */
-
-  /* optional: breathing-room for gaps + captions */
-  --image-padding: 2rem;
-}

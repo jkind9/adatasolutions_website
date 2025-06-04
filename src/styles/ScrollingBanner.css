@@ -1,76 +1,61 @@
-/* ============================================================================
-   SLIDES.CSS (updated for a 10vh‐tall header)
-   ----------------------------------------------------------------------------
-   1) We assume the HEADER (logo + “James Alexander” bar) is exactly 10vh tall,
-      so each slide’s outer container (“.slide-content”) should be 90vh tall.
-   2) Inside that 90vh, the title row takes its own height (we’ll fix it to 80px),
-      and the remaining area (90vh − 80px) is given to the slide body.
-   3) Only the text inside the body scrolls if it overflows; no other part ever
-      pushes past the bottom of the viewport.
+/* File: src/styles/ScrollingBanner.css */
 
-   Copy & paste this into your Slides.css (replacing any prior “slide” rules).
-   ============================================================================ */
-
-/* ----------------------------------------------------------------------------
-   0) GLOBAL RESET: remove default margins/padding; hide page‐level overflow
-   ---------------------------------------------------------------------------- */
-html,
-body {
-  margin: 0;
-  padding: 0;
-  height: 100%;             /* fill viewport */
-  overflow: hidden;         /* prevent the page from scrolling */
+/* 1) Container that holds all slides */
+.scroll-container {
   width: 100%;
-  box-sizing: border-box;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
-/* ----------------------------------------------------------------------------
-   2) EACH “SLIDE” SECTION (if you’re wrapping slides in .scroll-section):
-      - We still allow a small margin + padding around, but never let the
-        inner slide overflow. Remove or adjust these margins/paddings as desired.
-   ---------------------------------------------------------------------------- */
+/* 2) Each slide occupies full viewport height */
 .scroll-section {
-  scroll-snap-align: start;
+  position: relative;
   width: 100%;
-  
-  /* Optional breathing room above & below each slide */
-  margin: 20px 0;             /* 20px above + 20px below */
-  padding: 40px 0;            /* 40px “pad” above + below content */
-
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
+  height: 100vh;                /* full viewport height */
+  display: flex;
+  align-items: center;          /* vertically center content-wrapper */
+  justify-content: center;      /* horizontally center content-wrapper */
+  opacity: 0;                   /* start hidden */
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(20px);
 }
+
+/* 3) Add “visible” to fade-in when in view */
 .scroll-section.visible {
   opacity: 1;
+  transform: translateY(0);
 }
 
-/* ----------------------------------------------------------------------------
-   8) OPTIONAL SCROLLBAR STYLING: lighten scrollbar on .scroll-container
-   ---------------------------------------------------------------------------- */
-.scroll-container {
-  /* 100 vh minus 10 vh header  →  90 vh */
-  height: calc(100vh - 10vh);
-  overflow-y: scroll;               /* still scrolls, but bar is invisible */
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  /* border: 10px solid black; */
-
-  /* Hide scrollbar (cross-browser) */
-  -ms-overflow-style: none;   /* IE / old Edge */
-  scrollbar-width: none;      /* Firefox */
+/* 4) Optional slide-in directions */
+.from-left {
+  transform: translateX(-50px);
 }
-.scroll-container::-webkit-scrollbar {      /* Chrome / Safari */
-  display: none;
+.from-left.visible {
+  transform: translateX(0);
 }
 
-.block {
-    display: inline-block;
-    vertical-align: top;
-    max-width: 140px;
-    background-color: lightgrey;
-    text-align: center;
+.from-right {
+  transform: translateX(50px);
+}
+.from-right.visible {
+  transform: translateX(0);
 }
 
+/* 5) Wrapper for the content inside each slide */
+.slide-content-wrapper {
+  max-width: 800px;
+  width: 90%;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.85); /* semi-transparent “card” */
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;               /* in case content is taller than viewport */
+}
+/* 
+6) Responsive adjustments, if needed
+@media (max-width: 768px) {
+  .slide-content-wrapper {
+    width: 100%;
+    padding: 1.5rem;
+  }
+} */

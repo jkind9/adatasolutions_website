@@ -5,54 +5,40 @@
    ============================================================================ */
 
 /* ------------------------------------------------------
-   0. GLOBAL & VARS
-   ---------------------------------------------------- */
-:root {
-  --header-h: 10vh;        /* change once, everywhere updates        */
-  --footer-h: 10vh;      /* set if you add one later          */
-  --title-h : 80px;     /* .slide-title                       */
-
-  /* optional: breathing-room for gaps + captions */
-  --image-padding: 2rem;
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: hidden;        /* the page itself never scrolls          */
-  box-sizing: border-box;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
-               sans-serif;
-}
-
-/* ------------------------------------------------------
    1. SCROLL WRAPPER (snap)
    ---------------------------------------------------- */
 .scroll-container {
-  height: calc(100vh - var(--header-h));  /* 90 vh below header           */
+  height: 85vh;
+  box-sizing: border-box;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
 
-  /* hide its scrollbar (all browsers) */
   -ms-overflow-style: none;
   scrollbar-width: none;
+
+  border-style: dotted;
+  border-color: #920909;
 }
+
 .scroll-container::-webkit-scrollbar { display: none; }
 
 /* ------------------------------------------------------
    2. SECTION  (one per slide)
    ---------------------------------------------------- */
+/* ------------------------------------------------------
+   2. SECTION  (one per slide)
+   ---------------------------------------------------- */
 .scroll-section {
-  position: relative;                /* for vignette ::before overlay      */
+  position: relative;  
+  height:100%;
   width: 100%;
-  height: 90vh;                      /* fills the wrapper                  */
   margin: 0;
   opacity: 0;
   transition: opacity 0.6s ease-in-out;
   scroll-snap-align: start;
+  border-style: dotted;
+  border-color: #010101;
 }
 .scroll-section.visible { opacity: 1; }
 
@@ -61,6 +47,7 @@ body {
   position: absolute;
   inset: 0;
   pointer-events: none;
+  height:100%;
 
   box-shadow: inset 0 0 180px 60px rgba(0,0,0,.3); /* spread / softness */
   mix-blend-mode: multiply;
@@ -76,13 +63,26 @@ body {
 
 /* default: each slide's inner frame starts 110% off-screen to the right */
 .slide-content {
+
   display: flex;
   flex-direction: column;
   height: 100%;
 
-  transform: translateX(110%);
-  transition: transform 1s ease-out;
+  transform: translateX(70%);
+  transition: transform 2s ease-out;
 }
+
+
+.slide-content-wrapper {
+  width: 100%;
+  max-height: 60%;
+  overflow: hidden;      /* or auto if you want scrollbars */
+  border-style: dashed;
+  border-color: #218c13;
+  display: flex;
+  flex-direction: column;
+}
+
 
 /* even-numbered slides start off-screen to the left instead */
 .scroll-section:nth-child(even) .slide-content {
@@ -110,76 +110,63 @@ body {
    4. BODY  (text left – images right)
    ---------------------------------------------------- */
 .slide-body {
-   flex: 1 1 0;
-   display: flex;
-   gap: 3rem;                /* more breathing room between columns    */
-   padding: 0 2rem;
-   box-sizing: border-box;
-   align-items: flex-start;          /* text + image columns start together */
+  flex: 1 1 auto;
+  width :100%;
+  height:100%;
+  display: flex;
+  overflow: hidden; /* prevent vertical overflow */
+  min-height: 0;    /* ALLOW flex child shrinkage */
+  gap: 3rem;                /* more breathing room between columns    */
+  padding: 0 2rem;
+  box-sizing: border-box;
+  align-items: flex-start; 
+  border-style: dashed;
+  border-color: #4e138c;         /* text + image columns start together */
 }
+
 
 
 /* text column */
 .slide-text {
-  flex: 0 1 100%;
-  display: flex;
-  flex-direction: column;
-  text-align: right;       /* your original intent */
-  justify-content: flex-end;      /* remove vertical centring            */
-  align-items: flex-end;          /* left-align within the column        */
-  text-align: right;                 /* paragraph text is now left-aligned  */
-  width: calc(100% - 150px);
-  box-sizing: border-box;
-  margin: 0;                        /* no auto-centering                   */
-  gap: 1.25rem;
-
-  font-size: clamp(0.8rem, 1.5vw + 0.6vh, 4rem);
-  color: #fff;
-  /* font-size: 1.2vw; */
-  margin-left: 0; 
-  margin-right: auto;
-  /* border-style: dashed;
-  border-color: #823232; */
-
+  flex: 1 1 50%;
+  min-width: 250px;
+  max-width: 40rem;
+  font-size: clamp(1rem, 2vw + 0.5vh, 2.5rem);
+  color: #141313;
+  overflow-wrap: break-word;
 }
+
 
 .slide-text p { margin: 0; }
 
 /* 4b. IMAGE COLUMN */
 .image-section {
-  flex: 0 0 auto;
+  flex: 1 1 0;
   max-height: calc(
    95vh - var(--header-h) - var(--footer-h) - var(--title-h)
       - var(--image-padding) 
   );
-  max-width: 40vw;
-  height: 100%;
-  display: flex;
-  justify-content: space-around;
-
-  flex-direction: column;   /* stack images vertically                */
-  gap: 1rem;
-  overflow: hidden;         /* images shrink before scrolling         */
-  box-sizing: border-box;      
-  align-items: right;
-  width: fit-content;       /* modern browsers – fallback is auto      */ 
+  min-height: 0;      /* allow vertical shrink */
+  min-width: 0;       /* allow horizontal shrink if needed */
+  overflow: auto;     /* scroll if still overflown */
   margin-left: auto; 
   margin-right: 0;
-  /* border-style: dashed;
-  border-color: #e0e0e0; */
+  border-style: dashed;
+  overflow: hidden; /* prevent content from pushing parent */
+  border-color: #8c1313;
 }
 
 /* wrapper around <img> + caption */
 .image-item {
-  flex: 0 1 auto;              /* share height equally                   */
+  flex: 1 1 auto;              /* share height equally                   */
   min-height: 0;
   width: fit-content;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: right;
-  /* border-style: dashed;
-  border-color: #634141; */
+  border-style: dashed;
+  border-color: #41634e;
 
 }
 
