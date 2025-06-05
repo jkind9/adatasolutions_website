@@ -25,11 +25,11 @@ export default function ComputerVisionSlide() {
       alt: 'Thermal detection with YOLOv5',
       caption: 'Real-time Thermal Enhancement + YOLOv5'
     },
-    {
-      src: cvExample2,
-      alt: 'Siamese NN embedding for facial recognition',
-      caption: 'Siamese NN Embedding Model'
-    }
+    // {
+    //   src: cvExample2,
+    //   alt: 'Siamese NN embedding for facial recognition',
+    //   caption: 'Siamese NN Embedding Model'
+    // }
   ];
 
   return (

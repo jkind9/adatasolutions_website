@@ -1,4 +1,3 @@
-// File: src/components/UI/AutoResizeText.jsx
 import React, {
   useRef,
   useState,
@@ -11,7 +10,7 @@ export default function AutoResizeText({
   children,
   className = '',
   style = {},
-  minFontSize = 12,
+  minFontSize = 8,
   maxFontSize = 32,
   step = 0.5,
 }) {
@@ -29,31 +28,21 @@ export default function AutoResizeText({
 
     const fits = () => text.scrollHeight <= container.clientHeight;
 
-    // Shrink if needed
     while (currentSize > minFontSize && !fits()) {
       currentSize -= step;
       text.style.fontSize = `${currentSize}px`;
     }
 
-    // Grow back up if there's room
-    while (currentSize < maxFontSize) {
-      text.style.fontSize = `${currentSize + step}px`;
-      if (text.scrollHeight > container.clientHeight) break;
-      currentSize += step;
-    }
-
     setFontSize(currentSize);
   }, [minFontSize, maxFontSize, step]);
 
-  // Trigger resize on content changes
   useLayoutEffect(() => {
     resizeToFit();
   }, [children, resizeToFit]);
 
-  // React to container size changes using ResizeObserver
   useEffect(() => {
     const observer = new ResizeObserver(() => {
-      requestAnimationFrame(resizeToFit); // avoid layout mutation during observer cycle
+      requestAnimationFrame(resizeToFit);
     });
 
     if (containerRef.current) {
@@ -62,6 +51,17 @@ export default function AutoResizeText({
 
     return () => observer.disconnect();
   }, [resizeToFit]);
+
+  const renderContent = () => {
+    if (Array.isArray(children)) {
+      return children.map((para, i) => (
+        <p key={i} style={{ marginBottom: '1em' }}>
+          {para}
+        </p>
+      ));
+    }
+    return <p>{children}</p>;
+  };
 
   return (
     <div
@@ -73,12 +73,14 @@ export default function AutoResizeText({
         ref={textRef}
         style={{
           fontSize: `${fontSize}px`,
-          lineHeight: 1.2,
+          lineHeight: 1.4,
           wordBreak: 'break-word',
           whiteSpace: 'normal',
+          margin: 0,
+          padding: 0,
         }}
       >
-        {children}
+        {renderContent()}
       </div>
     </div>
   );

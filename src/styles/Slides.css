@@ -1,69 +1,4 @@
-/* ============================================================================
-   SLIDES.CSS  –  polished two-column slides with centred copy & stacked images
-   Header is fixed at 10 vh → remaining viewport = 90 vh
-   Title row = 80 px; body fills the rest.
-   ============================================================================ */
 
-/* ------------------------------------------------------
-   1. SCROLL WRAPPER (snap)
-   ---------------------------------------------------- */
-.scroll-container {
-  height: 85vh;
-  width: 100vw;
-  box-sizing: border-box;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-
-  border-style: dotted;
-  border-color: #920909;
-  /* display: flex; */
-  /* flex-direction: row; */
-  /* align-items: stretch; */
-}
-
-.scroll-container::-webkit-scrollbar { display: none; }
-
-/* ------------------------------------------------------
-   2. SECTION  (one per slide)
-   ---------------------------------------------------- */
-/* ------------------------------------------------------
-   2. SECTION  (one per slide)
-   ---------------------------------------------------- */
-.scroll-section {
-  position: relative;  
-  height:100%;
-  width: 100%;
-  margin: 0;
-  opacity: 0;
-  transition: opacity 0.6s ease-in-out;
-  scroll-snap-align: start;
-  border-style: dotted;
-  border-color: #010101;
-}
-.scroll-section.visible { opacity: 1; }
-
-.scroll-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  height:100%;
-
-  box-shadow: inset 0 0 180px 60px rgba(0,0,0,.3); /* spread / softness */
-  mix-blend-mode: multiply;
-  z-index: 0;
-}
-.scroll-section > * { position: relative; z-index: 1; }
-/* ------------------------------------------------------
-   3. SLIDE FRAME (title + body)
-   ---------------------------------------------------- */
-/* ------------------------------------------------------
-   3a. SLIDE-IN ANIMATION  (left / right)
-   ---------------------------------------------------- */
 
 /* default: each slide's inner frame starts 110% off-screen to the right */
 .slide-content {
@@ -82,33 +17,23 @@
 
   height: 100%;
 
-  max-width: 70%;
-  max-height: 70%;
+  max-width: 80%;
+  max-height: 80%;
 
-  border-style: dotted;
-  border-color: #3f138c;
-  background: rgba(255, 255, 255, 0.85); /* semi-transparent “card” */
+  /* border-style: dotted;
+  border-color: #3f138c; */
+  background: rgba(255, 255, 255, 0.75); /* semi-transparent “card” */
   border-radius: 8px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
   padding:2rem;
 }
 
 
-/* even-numbered slides start off-screen to the left instead */
-.scroll-section:nth-child(even) .slide-content {
-  transform: translateX(-20%);
-}
-
-/* when IntersectionObserver adds "visible", bring the frame into place */
-.scroll-section.visible .slide-content {
-  transform: translateX(0);
-}
-
 .slide-title {
   margin: 0;
   font-size: 3rem;
   font-weight: 700;
-  text-align: center;
+  text-align: top;
   color: #151212;
 }
 
@@ -127,68 +52,66 @@
   border-color: #358c13;         /* text + image columns start together */
   flex-direction: row;
   display: flex;
+  align-self: center;
 
 }
-
-
 
 .slide-text {
   flex: 1 1 auto;          /* split the available height among all images evenly */
   min-width: 0;            /* ← let wrapper ever shrink if needed */
   min-height: 0;           /* ← same but vertically */
-  max-height: 80%;
-  max-width: 50%; /* okay to keep this if you want 50/50 split */
-  height:80%;
-  width:50%;
+  max-height: 90%;
+  max-width: 40%; /* okay to keep this if you want 50/50 split */
+  height:100%;
+  text-align: right;
   border:dotted;
   border-color:#151212;
-
+  overflow: visible;      /* avoid scroll height affecting measurements */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.slide-text p {
-  margin: 0;
-  line-height: 1.3;
+
+/* ------------------------------------------------------
+  IMAGE COLUMN (right side of slide-body)
+  ---------------------------------------------------- */
+  .image-section {
+  flex: 1 1 50%;         /* occupy exactly half the width of .slide-body */
+  display: flex;
+  flex-direction: column;/* stack image-items vertically */
+  min-width: 0;          /* allow this column to shrink if needed */
+  min-height: 0;         /* allow this column to shrink vertically */
+  overflow: hidden;      /* prevent it from growing beyond parent */
+  /* border: dashed 1px #613434; */
+  align-self: left;
 }
 
 /* ------------------------------------------------------
-   IMAGE COLUMN (right side of slide-body)
-   ---------------------------------------------------- */
-   .image-section {
-    flex: 1 1 50%;         /* occupy exactly half the width of .slide-body */
-    display: flex;
-    flex-direction: column;/* stack image-items vertically */
-    min-width: 0;          /* allow this column to shrink if needed */
-    min-height: 0;         /* allow this column to shrink vertically */
-    overflow: hidden;      /* prevent it from growing beyond parent */
-    border: dashed 1px #613434;
-  }
-  
-  /* ------------------------------------------------------
-     EACH IMAGE+CAPTION WRAPPER
-     ---------------------------------------------------- */
-  .image-item {
-    flex: 1 1 0;           /* each item takes an equal share of .image-section’s height */
-    display: flex;         
-    flex-direction: column;
-    align-items: center;   
-    justify-content: center; 
-    min-width: 0;          /* critical: allows the flex-box to shrink */
-    min-height: 0;         /* critical: allows the flex-box to shrink */
-    border: dashed 1px #138c27;
-    padding: 0.5rem;       /* optional, just adds spacing around the image */
-  }
-  
-  /* ------------------------------------------------------
-     THE <img> ITSELF
-     ---------------------------------------------------- */
-  .slide-image {
-    max-width: 100%;       /* never exceed parent’s width */
-    max-height: 100%;      /* never exceed parent’s height */
-    width: auto;
-    height: auto;
-    object-fit: contain;   /* scale down if needed, preserving aspect ratio */
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    border: dotted 1px #3f138c;
-  }
-  
+    EACH IMAGE+CAPTION WRAPPER
+    ---------------------------------------------------- */
+.image-item {
+  flex: 1 1 auto;           /* each item takes an equal share of .image-section’s height */
+  display: flex;         
+  /* flex-direction: column; */
+  align-items: center;   
+  justify-content: center; 
+  min-width: 0;          /* critical: allows the flex-box to shrink */
+  min-height: 0;         /* critical: allows the flex-box to shrink */
+  /* border: dashed 1px #138c27; */
+  padding: 0.5rem;       /* optional, just adds spacing around the image */
+}
+
+/* ------------------------------------------------------
+    THE <img> ITSELF
+    ---------------------------------------------------- */
+.slide-image {
+  max-width: 100%;       /* never exceed parent’s width */
+  max-height: 100%;      /* never exceed parent’s height */
+  width: auto;
+  height: auto;
+  /* object-fit: contain;   scale down if needed, preserving aspect ratio */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  /* border: dotted 1px #3f138c; */
+}

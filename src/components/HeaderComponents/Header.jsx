@@ -73,7 +73,7 @@ export default function Header() {
             />
             <Box className="header-text-container">
               <Typography variant="h6" noWrap className="header-name">
-                James Alexander
+                Alexander Data Solutions
               </Typography>
               <Typography variant="caption" noWrap className="header-tagline">
                 Pioneering new technology across all industries.

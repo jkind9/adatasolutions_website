@@ -1,42 +1,85 @@
-/* File: src/styles/ScrollingBanner.css */
+/* ============================================================================ 
+   SLIDES.CSS  –  two-column slides with snap‐scroll and fade animations
+   Header is fixed at 10 vh → remaining viewport = 90 vh
+   Title row = 80 px; body fills the rest.
+   ============================================================================ */
 
-/* 1) Container that holds all slides */
-.scroll-container {
-  width: 100%;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-}
+/* ------------------------------------------------------
+  1. SCROLL WRAPPER (snap)
+  ---------------------------------------------------- */
+  .scroll-container {
+    padding-top: 5vh;
+    height: 85vh;
+    width: 100vw;
+    box-sizing: border-box;
+  
+    /* vertical scrolling only + mandatory snap */
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-snap-stop: always;      /* enforce immediate snap on each slide */
+    scroll-behavior: smooth;       /* keep smooth scroll when programmatic */
+  
+    /* hide native scrollbars */
+    -ms-overflow-style: none;      
+    scrollbar-width: none;         
+  }
+  .scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* ------------------------------------------------------
+    2. EACH SLIDE (scroll-section)
+    ---------------------------------------------------- */
+  .scroll-section {
+    position: relative;
+    width: 100%;
+    height: 100%;                 /* 100% of .scroll-container (85vh) */
+    margin: 0;
+    padding-top: 5vh;
 
-/* 2) Each slide occupies full viewport height */
-.scroll-section {
-  position: relative;
-  width: 100%;
-  height: 100vh;                /* full viewport height */
-  display: flex;
-  align-items: center;          /* vertically center content-wrapper */
-  justify-content: center;      /* horizontally center content-wrapper */
-  opacity: 0;                   /* start hidden */
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  transform: translateY(50px);
-}
-
-/* 3) Add “visible” to fade-in when in view */
-.scroll-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* 4) Optional slide-in directions */
-.from-left {
-  transform: translateX(-50px);
-}
-.from-left.visible {
-  transform: translateX(0);
-}
-
-.from-right {
-  transform: translateX(50px);
-}
-.from-right.visible {
-  transform: translateX(0);
-}
+    /* start fully transparent + slightly shifted down */
+    opacity: 0;
+    transform: translateY(10px);
+  
+    /* snap‐point at top of slide */
+    scroll-snap-align: start;
+  
+    /* center the inner card */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    /* fade‐in/fade‐out when .visible toggles */
+    transition: 
+      opacity 0.5s ease-out, 
+      transform 0.5s ease-out;
+  }
+  
+  /* when .visible is added (by IntersectionObserver), fade in + move to place */
+  .scroll-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* ------------------------------------------------------
+    (the rest of your two‐column slide layout would follow here,
+     for example: .slide-content-wrapper, .slide-body, .slide-text, .image-section, etc.)
+    ---------------------------------------------------- */
+  
+  /* Example: overlay/shadow behind each slide (if needed) */
+  /*
+  
+  */
+  .scroll-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    box-shadow: inset 0 0 180px 60px rgba(0, 0, 0, 0.3);
+    mix-blend-mode: multiply;
+    z-index: 0;
+  }
+  .scroll-section > * {
+    position: relative;
+    z-index: 1;
+  }

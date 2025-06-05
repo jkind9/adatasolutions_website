@@ -1,8 +1,8 @@
 // src/components/slides/MachineLearningSlide.jsx
 import '../../styles/Slides.css';
 import SlideContent from './SlideContent';
-import mlChart from '../../assets/images/cheetir.png';
-import mlGraph from '../../assets/images/cheetir.png';
+import mlChart from '../../assets/images/ML.png';
+import mlGraph from '../../assets/images/RF.png';
 
 export default function MachineLearningSlide() {
   const paragraphs = [

@@ -1,10 +1,10 @@
 // File: src/pages/Expertise.jsx
 import React from 'react';
 import ScrollingBanner from '../components/UI/ScrollingBanner';
-import ComputerVisionSlide from '../components/HomePageSlides/ComputerVisionSlide';
-import MachineLearningSlide from '../components/HomePageSlides/MachineLearningSlide';
-import NLPSlide from '../components/HomePageSlides/NLPSlide';
-import AISlide from '../components/HomePageSlides/AISlide';
+import ComputerVisionSlide from '../components/ExpertiseSlides/ComputerVisionSlide';
+import MachineLearningSlide from '../components/ExpertiseSlides/MachineLearningSlide';
+import NLPSlide from '../components/ExpertiseSlides/NLPSlide';
+import AISlide from '../components/ExpertiseSlides/AISlide';
 
 import bg1 from '../assets/images/background-var1.png';
 import bg2 from '../assets/images/background-var2.png';
