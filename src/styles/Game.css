@@ -1,0 +1,17 @@
+.game-wrapper {
+    /* padding-top: 10vh;              space for fixed header */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  
+  .game-canvas {
+    max-height: 70vh;
+    max-width: 100%;
+    display: block;
+    border: 2px solid #000;         /* optional border */
+    background-color: rgb(4, 4, 4);        /* ensure canvas background */
+  }
+  
