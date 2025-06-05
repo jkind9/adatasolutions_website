@@ -1,9 +1,8 @@
 // src/components/slides/ComputerVisionSlide.jsx
 import '../../styles/Slides.css';
-import SlideContent from './SlideContent';
+import SlideContent from '../UI/SlideContent';
 
 import cvExample1 from '../../assets/images/cheetir.png';
-import cvExample2 from '../../assets/images/triplet_loss.png';
 import cvExample3 from '../../assets/images/clip.png';
 
 export default function ComputerVisionSlide() {

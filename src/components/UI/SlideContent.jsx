@@ -2,7 +2,7 @@
 import React from 'react';
 import '../../styles/Slides.css';
 import ImageSection from './ImageSection';
-import AutoResizeText from '../UI/AutoResizeText'; // <<— import it
+import AutoResizeText from './AutoResizeText'; // <<— import it
 
 export default function SlideContent({ title, paragraphs = [], images = [] }) {
   return (

@@ -1,7 +1,7 @@
 // src/components/slides/NLPSlide.jsx
 import React from 'react';
 import '../../styles/Slides.css';
-import SlideContent from './SlideContent';
+import SlideContent from '../UI/SlideContent';
 import nlpDemo1 from '../../assets/images/NLP.png';
 
 export default function NLPSlide() {

@@ -1,6 +1,6 @@
 // src/components/slides/MachineLearningSlide.jsx
 import '../../styles/Slides.css';
-import SlideContent from './SlideContent';
+import SlideContent from '../UI/SlideContent';
 import mlChart from '../../assets/images/ML.png';
 import mlGraph from '../../assets/images/RF.png';
 

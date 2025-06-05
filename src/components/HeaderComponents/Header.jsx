@@ -101,9 +101,13 @@ export default function Header() {
             > 
               Expertise
             </Button>
-            {/* <Button color="inherit" className="header-link-btn">
+            <Button
+              onClick={() => navigate('/about')}
+              color="inherit"
+              className="header-link-btn"
+            > 
               About
-            </Button> */}
+            </Button>
             {/* <Button color="inherit" className="header-link-btn">
               Contact
             </Button> */}
