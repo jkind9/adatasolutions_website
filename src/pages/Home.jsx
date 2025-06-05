@@ -21,7 +21,7 @@ export default function HomePage() {
           <p>
             We deliver cutting-edge technology consulting services, from software development and cloud solutions to data analytics and machine learning.
           </p>
-          <Button variant="contained" size="large">Schedule a Consultation</Button>
+          {/* <Button variant="contained" size="large">Schedule a Consultation</Button> */}
         </motion.div>
 
         <section className="homepage-features-wrapper">

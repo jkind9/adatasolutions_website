@@ -1,6 +1,10 @@
-/* src/styles/Homepage.css */
+/* Make sure the html/body/root are 100% high: */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
 
-/* 1) Make container fill available space between header and footer */
+/* 1) .homepage-container now takes up all space between header (10vh) and footer (15vh) */
 .homepage-container {
   width: 100vw;
   min-height: calc(100vh - 10vh);
@@ -15,10 +19,10 @@
   overflow: hidden; /* prevents page‐level scroll */
 }
 
-/* 2) Main content area flex‐grows and scrolls if needed */
+/* 2) .homepage-main flex‐grows to fill any remaining area (and scrolls internally if needed) */
 .homepage-main {
-  flex-grow: 1;
-  overflow-y: auto;    /* scroll internally if content is taller */
+  flex: 1;
+  overflow-y: auto;
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
@@ -30,25 +34,27 @@
 .homepage-intro {
   text-align: center;
   margin-bottom: 3rem;
+  margin-top: 3rem;
+
 }
 
 .homepage-intro h2 {
-  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-size: clamp(1rem, 3vw, 5rem);
   margin-bottom: 1rem;
   color: #ffffff;
   word-break: break-word;
 }
 
 .homepage-intro p {
-  font-size: clamp(1rem, 3vw, 1.125rem);
-  margin-bottom: 2rem;
+  font-size: clamp(1rem, 2vw, 5rem);
+  margin-bottom: 3rem;
   color: #ffffff;
   word-break: break-word;
 }
 
 /* 4) Feature cards wrapper */
 .homepage-features-wrapper {
-  padding: 2rem 0;
+  padding: 3rem 0;
   background-color: rgba(0, 0, 0, 0.4);
   border-radius: 8px;
 }
