@@ -9,20 +9,23 @@
   top: 0;
   z-index: 1100;
 }
+
 /* Prevent the primary‐colour override */
 .header-root.MuiAppBar-colorPrimary {
   background-color: #00000085 !important;
 }
 
+/* Make toolbar flex‐wrap so items don’t overflow */
 .header-toolbar {
   display: flex !important;
+  flex-wrap: wrap !important;            /* allow wrapping on small screens */
   justify-content: space-between !important;
   align-items: center !important;
   padding-left: 16px !important;
   padding-right: 16px !important;
 }
 
-/* Increase padding on small screens, larger on md+ */
+/* Increase horizontal padding on larger screens */
 @media (min-width: 600px) {
   .header-toolbar {
     padding-left: 16px !important;
@@ -36,44 +39,86 @@
   }
 }
 
+/* Left side (logo + name/tagline) */
 .header-left {
   display: flex;
   align-items: center;
+  flex: 1 1 auto;                       /* allow shrinking if needed */
+  min-width: 0;                         /* allow child text to wrap */
 }
 
+/* Logo */
 .header-logo {
   height: 48px;
   width: 48px;
   object-fit: contain;
   margin-right: 16px;
+  flex-shrink: 0;                       /* don’t squash below 48px */
 }
 
+/* Shrink logo on very small screens */
+@media (max-width: 400px) {
+  .header-logo {
+    height: 36px;
+    width: 36px;
+    margin-right: 8px;
+  }
+}
+
+/* Text container */
 .header-text-container {
   display: flex;
   flex-direction: column;
+  min-width: 0;                         /* allow wrapping of long text */
 }
 
+/* Name: shrink font on narrow screens */
 .header-name {
   font-size: 1.25rem;
   font-weight: 600;
   letter-spacing: 0.8px;
   color: #d8cfcf;
   margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
+/* On small screens, reduce name size */
+@media (max-width: 500px) {
+  .header-name {
+    font-size: 1rem;
+  }
+}
+
+/* Tagline: always wrap below name if needed */
 .header-tagline {
   font-size: 0.75rem;
-  font-style: bold;
+  font-weight: bold;
   color: #d8cfcf;
   margin-top: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
+/* Shrink tagline on very small screens */
+@media (max-width: 500px) {
+  .header-tagline {
+    font-size: 0.625rem;
+  }
+}
+
+/* Right side links (hidden by default on small screens) */
 .header-links {
   display: none;
   align-items: center;
   gap: 8px;
+  flex: 1 1 auto;                       /* allow shrinking if needed */
+  justify-content: flex-end;            /* stay on right side */
 }
 
+/* Link-button styling */
 .header-link-btn {
   text-transform: none !important;
   color: inherit !important;
@@ -84,6 +129,7 @@
   border-color: #d8cfcf !important;
   color: #d8cfcf !important;
 }
+
 .header-link-outlined:hover {
   background-color: rgba(25, 118, 210, 0.08) !important;
   border-color: #d8cfcf !important;
@@ -96,12 +142,20 @@
   }
 }
 
+/* Menu icon: visible on small screens only */
 .header-menu-icon {
   display: flex !important;
+  flex: 0 0 auto;                      /* do not stretch */
 }
+
 /* Hide menu icon on md+ screens */
 @media (min-width: 900px) {
   .header-menu-icon {
     display: none !important;
   }
+}
+
+/* For extra safety, ensure no overflow on the root header container */
+.header-root {
+  overflow-x: hidden;
 }

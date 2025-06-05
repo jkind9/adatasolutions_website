@@ -136,3 +136,56 @@ body,
 }
 
 
+/* Mobile‐first overrides */
+@media (max-width: 600px) {
+  /* 1. Let the container height become “auto” instead of fixed vh */
+  .homepage-container {
+    height: auto;
+    padding-bottom: 2rem; /* ensure some bottom breathing room */
+  }
+
+  /* 2. Reduce padding in main so content doesn’t get cut off */
+  .homepage-main {
+    padding: 2rem 1rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* 3. Center intro text and shrink font sizes further if needed */
+  .homepage-intro-title {
+    font-size: clamp(1.5rem, 4vw, 2.5rem) !important;
+  }
+  .homepage-intro-text {
+    font-size: clamp(0.875rem, 3vw, 1rem) !important;
+  }
+
+  /* 4. Make features wrapper pinch in its padding and become taller if needed */
+  .homepage-features-wrapper {
+    padding: 1.5rem 0.75rem;
+  }
+
+  /* 5. Stack cards one per “row” at 100% width */
+  .homepage-features {
+    flex-direction: column;
+    gap: 1rem !important;
+  }
+  .homepage-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  /* 6. Shrink the icon and text inside each card */
+  .feature-icon svg {
+    width: 36px;
+    height: 36px;
+  }
+  .feature-title {
+    font-size: 1.25rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+  .feature-text {
+    font-size: 0.875rem !important;
+    line-height: 1.4 !important;
+  }
+}

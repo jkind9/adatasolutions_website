@@ -1,48 +1,37 @@
 /* -------------------------------------------------------------------
-   ReferenceQuote.css – visible border on reference-figure and children
+   ReferenceQuote.css – unchanged except optional debug borders
    ------------------------------------------------------------------- */
 
-/* 1) Container styles */
-.reference-figure {
-  width: 100%;
-  max-width: 600px;          /* limit width of the quote block */
-  margin: 0 auto;            /* center horizontally */
-
-  padding: 1rem;             /* inner spacing */
-  background-color: #ffffff; /* white background so border is obvious */
-  color: #000000;            /* black text */
-  box-sizing: border-box;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* push blockquote to top, figcaption to bottom */
-
-  border-left: 4px solid #000000;  /* left accent border */
-  border-radius: 4px;              /* slight rounding */
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* subtle drop shadow */
-
-  /* DEBUG: full container border */
-}
-
-/* 2) Blockquote at the top */
-.reference-figure blockquote {
-  margin: 0;
-  font-size: clamp(1rem,1.25vh,2rem);       /* ~18px */
-  font-weight: 500;
-  line-height: 1.6;
-
-  /* DEBUG: border around text */
-}
-
-/* 3) Figcaption anchored to the bottom */
-.reference-figure figcaption {
-  margin-top: 1rem;          /* space above author line */
-
-  font-size: clamp(1rem,1vh,2rem);       /* ~18px */
-  font-weight: 600;
-  opacity: 0.8;
-  text-align: right;         /* align author to the right */
-
-  /* DEBUG: border around caption */
-  border: 10px dashed orange !important;
-}
+   .reference-figure {
+    width: 100%;
+    max-width: 600px;          
+    margin: 0 auto;            
+    padding: 1rem;             
+    background-color: #ffffff; 
+    color: #000000;            
+    box-sizing: border-box;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
+    border-left: 4px solid #000000;  
+    border-radius: 4px;              
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .reference-figure blockquote {
+    margin: 0;
+    font-size: clamp(1rem, 1.25vh, 2rem);
+    font-weight: 500;
+    line-height: 1.6;
+  }
+  
+  .reference-figure figcaption {
+    margin-top: 1rem;
+    font-size: clamp(1rem, 1vh, 2rem);
+    font-weight: 600;
+    opacity: 0.8;
+    text-align: right;
+  }
+  
