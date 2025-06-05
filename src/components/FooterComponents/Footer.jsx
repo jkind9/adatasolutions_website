@@ -16,7 +16,7 @@ const slides = [
   {
     Component: ReferenceQuote,
     props: {
-      quote: 'A bit of a knob',
+      quote: 'An absolute nerd, but in the best way possible, ladies and gentlemen James Alexander',
       author:
         'Rakeem Morgan-Cornibert, Head of Systems Analytics @ Intrum',
     },

@@ -2,14 +2,38 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../../styles/ReferenceQuote.css';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
 export default function ReferenceQuote({ quote, author }) {
   return (
-    <figure className="reference-figure">
-      <blockquote>“{quote}”</blockquote>
-      <figcaption>— {author}</figcaption>
-    </figure>
+    <Box
+      component="figure"
+      sx={{
+        textAlign: 'center',
+        p: 2,            // padding: theme.spacing(2)
+        m: 0,            // reset default margins
+      }}
+    >
+      <Typography
+        component="blockquote"
+        variant="body1"
+        sx={{
+          fontStyle: 'italic',
+          mb: 1,         // margin-bottom: theme.spacing(1)
+        }}
+      >
+        “{quote}”
+      </Typography>
+
+      <Typography
+        component="figcaption"
+        variant="subtitle2"
+        sx={{ fontWeight: 500 }}
+      >
+        — {author}
+      </Typography>
+    </Box>
   );
 }
 
