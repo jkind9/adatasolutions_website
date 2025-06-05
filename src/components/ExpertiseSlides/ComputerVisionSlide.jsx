@@ -7,11 +7,11 @@ import cvExample3 from '../../assets/images/clip.png';
 
 export default function ComputerVisionSlide() {
   const paragraphs = [
-    `Our computer vision practice delivers bespoke image and video analytics solutions that solve real-world challenges across industries. 
-    Leveraging OpenCV, YOLOv5, and custom deep-learning architectures, we build systems that automatically extract and quantify visual information—such as symbol counting on construction sites, thermal imaging for quality control, and facial recognition for access management.`,
-    `Credited as lead inventor in a novel take-off/estimation platform,our clients can now reduce manual labor by an order of magnitude. 
-    From prototype to deployment in Docker-based pipelines or embedded devices, we handle every stage: data collection, annotation, model training, and continuous improvement.`
+    `I have experience with a vast array of computer vision methods, including creating image embeddings for vector similarity, object detection pipelines, foreground/background separation, image processing and enhancement techniques, and OCR for text extraction.`,
+  
+    `In past projects, I’ve built end-to-end solutions—from data collection and annotation to model training, optimization, and deployment—using frameworks like OpenCV, PyTorch, and TensorFlow. These deployments run in Docker-based pipelines, edge devices, and cloud infrastructures, ensuring scalable, production-ready performance.`
   ];
+  
 
   const imageEntries = [
     {

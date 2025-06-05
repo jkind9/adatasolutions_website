@@ -6,9 +6,11 @@ import nlpDemo1 from '../../assets/images/NLP.png';
 
 export default function NLPSlide() {
   const paragraphs = [
-    `Understanding and automating human language is at the core of our NLP services. We build chatbots, sentiment-analysis engines, and custom text-classification models using state-of-the-art transformer architectures (BERT, GPT-based LLMs) and libraries like spaCy and Hugging Face.`,
-    `Our solutions include fine-tuned language models for industry-specific terminology, knowledge-base–driven conversational assistants, and retrieval-augmented generation (RAG) pipelines that surface relevant documents in real time. From pre-processing raw text to deploying low-latency inference endpoints, our NLP offerings help you extract meaning from unstructured data and deliver responsive, AI-powered experiences for your customers and employees.`
+    `I have experience with RAG pipelines, named entity recognition (NER), tokenization, summarization, and other core NLP techniques. I build chatbots, sentiment-analysis engines, and text-classification models using transformer architectures (BERT, GPT-based LLMs) and libraries like spaCy and Hugging Face.`,
+  
+    `My work includes fine-tuning language models for industry-specific terminology, implementing NER and summarization pipelines, and deploying low-latency inference endpoints. From preprocessing raw text to integrating retrieval-augmented generation, I help extract meaning from unstructured data and deliver responsive, AI-powered experiences.`
   ];
+  
 
   const imageEntries = [
     {

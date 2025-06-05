@@ -6,9 +6,11 @@ import mlGraph from '../../assets/images/RF.png';
 
 export default function MachineLearningSlide() {
   const paragraphs = [
-    `At Alexander Data Solutions Ltd, we harness the power of supervised and unsupervised learning to turn complex data sets into actionable insights. Our team builds end-to-end pipelines—from data ingestion and feature engineering to model deployment—using industry-standard frameworks such as TensorFlow, PyTorch, and scikit-learn.`,
-    `Whether it’s predicting customer churn, optimizing supply-chain logistics, or automating anomaly detection, we tailor each solution to your business objectives. By integrating our models into production environments (on-premises or in the cloud), we ensure scalable performance, rigorous monitoring, and continual retraining to maintain peak accuracy over time.`
+    `I am extremely familiar with many ML methods such as regression, classification, clustering, feature extraction and simplification, data augmentation, and both supervised and unsupervised learning. I build end-to-end pipelines—from data ingestion and preprocessing to feature engineering and model deployment—using frameworks like AWS Sagemaker, Tensorflow, Pytorch and Scikit-Learn`,
+  
+    `Whether it’s predicting customer churn, optimizing supply‐chain logistics, or automating anomaly detection, I tailor each solution to meet specific business objectives. By integrating models into production environments (on-premises or in the cloud), I ensure scalable performance, robust monitoring, and continuous retraining to maintain accuracy over time.`
   ];
+  
 
   const imageEntries = [
     {

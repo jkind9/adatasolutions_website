@@ -7,9 +7,11 @@ import cvExample2 from '../../assets/images/AIEvolution.png';
 
 export default function AISlide() {
   const paragraphs = [
-      `At ADS, we combine research-grade AI methodologies with production-focused engineering to deliver intelligent automation and decision support. Our expertise spans reinforcement learning agents, generative adversarial networks (GANs), and integrated AI + IoT systems.`,
-      `For instance, we have deployed reinforcement-learning–driven robotic controls and GAN-powered image synthesis pipelines that streamline content generation. By partnering with cloud providers (AWS SageMaker, Lambda, Bedrock) and on-prem infrastructures, we integrate AI components seamlessly into existing workflows—improving efficiency, reducing human error, and unlocking new capabilities that scale with your business.`
-    ];
+    `I have experience with all stages of AI development, from building and training neural networks to designing transformer architectures and working with large language models (LLMs). I’ve deployed both self-hosted solutions and cloud-based services—such as AWS Bedrock—to support research and production workloads.`,
+  
+    `My hands-on experience covers training, efficient fine-tuning (LoRA, adapters, etc.), and end-to-end MLOps deployments. By integrating CI/CD pipelines, Kubernetes (or similar orchestration), and monitoring tools, I ensure AI models move smoothly from prototype to production at scale.`
+  ];
+  
 
   const imageEntries = [
     {
