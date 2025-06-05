@@ -22,30 +22,27 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* subtle drop shadow */
 
   /* DEBUG: full container border */
-  /* border: 2px dashed navy !important; */
 }
 
 /* 2) Blockquote at the top */
 .reference-figure blockquote {
   margin: 0;
-
-  font-size: 1.125rem;       /* ~18px */
+  font-size: clamp(1rem,1.25vh,2rem);       /* ~18px */
   font-weight: 500;
   line-height: 1.6;
 
   /* DEBUG: border around text */
-  /* border: 1px dashed teal !important; */
 }
 
 /* 3) Figcaption anchored to the bottom */
 .reference-figure figcaption {
   margin-top: 1rem;          /* space above author line */
 
-  font-size: 0.875rem;       /* ~14px */
+  font-size: clamp(1rem,1vh,2rem);       /* ~18px */
   font-weight: 600;
   opacity: 0.8;
   text-align: right;         /* align author to the right */
 
   /* DEBUG: border around caption */
-  /* border: 1px dashed olive !important; */
+  border: 10px dashed orange !important;
 }

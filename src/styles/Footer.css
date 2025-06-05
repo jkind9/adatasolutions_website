@@ -38,7 +38,7 @@
   box-sizing: border-box;
 
   /* Debug border */
-  /* border: 2px dashed orange !important; */
+
 
   overflow-y: auto;         /* Scroll if <Banner> (or any child) is too tall */
 }

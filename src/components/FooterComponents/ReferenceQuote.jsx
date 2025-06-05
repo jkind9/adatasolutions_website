@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
+import '../../styles/ReferenceQuote.css';
+
 export default function ReferenceQuote({ quote, author }) {
   return (
     <Box
@@ -29,7 +31,7 @@ export default function ReferenceQuote({ quote, author }) {
       <Typography
         component="figcaption"
         variant="subtitle2"
-        sx={{ fontWeight: 500 }}
+        sx={{ fontWeight: 200 }}
       >
         — {author}
       </Typography>

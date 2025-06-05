@@ -12,9 +12,9 @@
 
 
 .slide-content-wrapper {
-  flex: 1 1 auto;          /* split the available height among all images evenly */
-  min-width: 0;            /* ← let wrapper ever shrink if needed */
-  min-height: 0;           /* ← same but vertically */
+  flex: 1 1 auto;          
+  min-width: 0;            
+  min-height: 0;           
   margin-top : 10vh;
 
   height: 80%;
