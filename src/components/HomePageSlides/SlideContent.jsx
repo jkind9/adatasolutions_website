@@ -16,10 +16,10 @@ export default function SlideContent({ title, paragraphs = [], images = [] }) {
         */}
         <AutoResizeText
           className="slide-text"
-          maxFontSize={36}
-          minFontSize={14}
+          maxFontSize={48}
+          minFontSize={8}
           step={0.5}
-          style={{ width: '100%', height: '100%' }}
+          style={{ flex:'1 1 50%', minHeight:0 }}
         >
           {paragraphs.map((p, i) => (
             <p key={i}>{p}</p>

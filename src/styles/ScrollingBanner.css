@@ -17,7 +17,7 @@
   justify-content: center;      /* horizontally center content-wrapper */
   opacity: 0;                   /* start hidden */
   transition: opacity 0.6s ease, transform 0.6s ease;
-  transform: translateY(20px);
+  transform: translateY(50px);
 }
 
 /* 3) Add “visible” to fade-in when in view */
@@ -40,22 +40,3 @@
 .from-right.visible {
   transform: translateX(0);
 }
-
-/* 5) Wrapper for the content inside each slide */
-.slide-content-wrapper {
-  max-width: 800px;
-  width: 90%;
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.85); /* semi-transparent “card” */
-  border-radius: 8px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-  overflow-y: auto;               /* in case content is taller than viewport */
-}
-/* 
-6) Responsive adjustments, if needed
-@media (max-width: 768px) {
-  .slide-content-wrapper {
-    width: 100%;
-    padding: 1.5rem;
-  }
-} */
