@@ -24,10 +24,11 @@ export default function Header() {
   };
   const navigate = useNavigate()
   const drawerItems = [
-    { label: 'Services', href: '#' },
-    { label: 'Portfolio', href: '#' },
-    { label: 'About', href: '#' },
-    { label: 'Contact', href: '#' },
+    { label: 'Home', href: '/' },
+    { label: 'Expertise', href: '/expertise' },
+
+    { label: 'About', href: '/about' },
+    
     { 
       label: 'LinkedIn', 
       href: 'https://www.linkedin.com/in/james-alexander-146239a4/',

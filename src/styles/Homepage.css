@@ -142,6 +142,7 @@ body,
   .homepage-container {
     height: auto;
     padding-bottom: 2rem; /* ensure some bottom breathing room */
+    overflow:hidden
   }
 
   /* 2. Reduce padding in main so content doesn’t get cut off */

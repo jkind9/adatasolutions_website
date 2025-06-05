@@ -16,12 +16,21 @@ const slides = [
   {
     Component: ReferenceQuote,
     props: {
-      quote: 'An absolute nerd, but in the best way possible, ladies and gentlemen James Alexander',
+      quote: 'An absolute nerd, but in the best way possible',
       author:
         'Rakeem Morgan-Cornibert, Head of Systems Analytics @ Intrum',
     },
     bgColor: '#004080',
   },
+  {
+    Component: ReferenceQuote,
+    props: {
+      quote: 'Excellent contactor/consultant - genuinely loves his projects.',
+      author:
+        'Jonathan Goulstine, CEO @ Ensign Advanced Systems Ltd',
+    },
+    bgColor: '#004080',
+  }
 ];
 
 export default function Footer() {
