@@ -6,7 +6,7 @@ import SlideContent from '../components/UI/SlideContent';
 
 import bg1 from '../assets/images/MyBG.png';
 import me from '../assets/images/me.png';
-
+import '../styles/About.css';
 
 function MeSlide() {
     const paragraphs = [

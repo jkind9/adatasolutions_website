@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { motion } from 'framer-motion';
-import { Code2, Cloud, BarChart2 } from 'lucide-react';
+import { Code2, CloudCheck, BrainCircuit} from 'lucide-react';
 import '../styles/Homepage.css';
 
 export default function HomePage() {
@@ -27,11 +27,11 @@ export default function HomePage() {
         <section className="homepage-features-wrapper">
           <div className="homepage-features">
             {[{
-              icon: <Code2 size={48} />, title: 'Software Development', desc: 'Tailored web and mobile applications.'
+              icon: <Code2 size={48} />, title: 'Software Development', desc: 'Tailored front ends conntect to back end API development.'
             }, {
-              icon: <Cloud size={48} />, title: 'Cloud Solutions', desc: 'Scalable, secure cloud infrastructure.'
+              icon: <CloudCheck size={48} />, title: 'Cloud Solutions', desc: 'Scalable, secure cloud infrastructure.'
             }, {
-              icon: <BarChart2 fontSize="large" />, title: 'Data Analytics', desc: 'Insights to drive informed decisions.'
+              icon: <BrainCircuit  size={48} />, title: 'Machine Learning &\nData Science', desc: 'Insights and models to drive informed decisions.'
             }].map((feature, idx) => (
               <Card key={idx} className="homepage-card">
                 <CardContent className="homepage-card-content">

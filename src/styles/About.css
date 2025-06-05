@@ -1,4 +1,7 @@
 .About-page .slide-image:hover {
-    transform: none !important;
-  }
+  transform: scale(1); /* magnify by 10% on hover */
+  transform: translateX(10px); /* magnify by 10% on hover */
+
+  z-index: 1;
+}
   

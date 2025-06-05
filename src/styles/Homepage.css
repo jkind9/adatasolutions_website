@@ -3,7 +3,7 @@
 /* 1) Make container fill available space between header and footer */
 .homepage-container {
   width: 100vw;
-  min-height: calc(100vh - 64px - 48px);
+  min-height: calc(100vh - 10vh);
   /* background image */
   background-image: url('../assets/images/background.png');
   background-size: cover;
