@@ -11,8 +11,8 @@
 
   /* Remove fixed 10vh; let it size to content up to a max */
   height: auto;
-  max-height: 15vh;         /* or whatever maximum you prefer */
-  min-height: 100px;        /* still ensure it never gets too small */
+  max-height: 20vh;         /* or whatever maximum you prefer */
+  min-height: 10vh;        /* still ensure it never gets too small */
 
   display: flex;
   justify-content: center;

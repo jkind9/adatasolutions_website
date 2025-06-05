@@ -141,7 +141,7 @@ body,
   /* 1. Let the container height become “auto” instead of fixed vh */
   .homepage-container {
     height: auto;
-    padding-bottom: 2rem; /* ensure some bottom breathing room */
+    padding-bottom: 2rem;
     overflow:hidden
   }
 
@@ -163,13 +163,14 @@ body,
   /* 4. Make features wrapper pinch in its padding and become taller if needed */
   .homepage-features-wrapper {
     padding: 1.5rem 0.75rem;
+    overflow: auto;
   }
 
   /* 5. Stack cards one per “row” at 100% width */
-  .homepage-features {
+  /* .homepage-features {
     flex-direction: column;
     gap: 1rem !important;
-  }
+  } */
   .homepage-card {
     flex: 1 1 100%;
     max-width: 100%;
