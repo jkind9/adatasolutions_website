@@ -32,9 +32,9 @@
 
 .slide-title {
   margin: 0;
-  font-size: 3rem;
-  font-weight: 700;
-  text-align: top;
+  font-size: clamp(1rem, 4vh, 4rem);
+  font-weight: 500;
+  text-align: top-center;
   color: #151212;
 }
 
@@ -62,7 +62,7 @@
   min-width: 0;            /* ← let wrapper ever shrink if needed */
   min-height: 0;           /* ← same but vertically */
   max-height: 90%;
-  max-width: 40%; /* okay to keep this if you want 50/50 split */
+  max-width: 50%; /* okay to keep this if you want 50/50 split */
   height:100%;
   text-align: right;
   /* border:dotted;
