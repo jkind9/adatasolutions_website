@@ -9,11 +9,21 @@
   width:40%;
   /* border:5px dashed; */
 }
-.About-page .slide-text{
-  flex: 1 1 auto;
-  align-self: flex-end!important; 
-  width:80%;
-  border:5px dashed;
-  max-width: 80%; /* okay to keep this if you want 50/50 split */
-  font-size: clamp(0.5rem, 1vh, 3rem);
+.About-page .slide-text {
+  flex: 1 1 auto!important;
+  align-self: flex-start !important;
+  width: 80%!important;
+  max-width: 80%!important;
+  font-size: clamp(0.1rem, 0.7vh, 3rem)!important;
+  max-height: 40vh!important;   /* adjust this value so the element’s height is constrained */
+  overflow-y: auto!important;
+  padding-top:10vh;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.About-page .slide-text::-webkit-scrollbar {
+  display: none;
 }
