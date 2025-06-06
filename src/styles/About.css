@@ -18,7 +18,7 @@
   max-height: 40vh!important;   /* adjust this value so the element’s height is constrained */
   overflow-y: auto!important;
   padding-top:10vh;
-
+  padding-bottom: 10vh;
   overflow-y: auto;
   overflow-x: hidden;
   -ms-overflow-style: none;
@@ -26,4 +26,8 @@
 }
 .About-page .slide-text::-webkit-scrollbar {
   display: none;
+}
+
+.About-page .slide-content-wrapper{
+  height:70%
 }
