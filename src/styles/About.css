@@ -7,7 +7,7 @@
 .About-page .image-item{
   align-self: flex-end!important; 
   width:40%;
-  border:5px dashed;
+  /* border:5px dashed; */
 }
 .About-page .slide-text{
   flex: 1 1 auto;
@@ -15,5 +15,5 @@
   width:80%;
   border:5px dashed;
   max-width: 80%; /* okay to keep this if you want 50/50 split */
-
+  font-size: clamp(0.5rem, 1vh, 3rem);
 }

@@ -22,7 +22,7 @@
   box-sizing: border-box;
 
   /* Reserve ~40px at the bottom so content doesn’t overlap the dots */
-  padding-bottom: 40px;
+  padding-bottom: 5vh;
 
   /* Give slide a lower stacking context */
   z-index: 1;
@@ -34,14 +34,14 @@
 /* 3) Position indicator dots near the bottom inside the slide */
 .banner-indicators {
   position: absolute;
-  bottom: 8px;
+  bottom: 1vh;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 8px;
+  gap: 1vw;
 
   /* Bring dots above the slide so they can be clicked */
-  z-index: 2;
+  z-index: 5;
 
   /* (Optional) debug border */
   /* border: 2px dashed green !important; */
@@ -50,7 +50,7 @@
 /* 4) Base styling for each dot (IconButton) */
 .indicator-dot {
   color: rgba(0, 0, 0, 0.3);
-  padding: 4px;
+  padding: 1vh;
 
   /* (Optional) debug border */
   /* border: 1px dashed hotpink !important; */
