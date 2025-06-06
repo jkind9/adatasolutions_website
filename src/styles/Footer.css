@@ -11,7 +11,7 @@
 
   /* Remove fixed 10vh; let it size to content up to a max */
   height: auto;
-  max-height: 20vh;         /* or whatever maximum you prefer */
+  max-height: 15vh;         /* or whatever maximum you prefer */
   min-height: 10vh;        /* still ensure it never gets too small */
 
   display: flex;
@@ -47,4 +47,15 @@
 .footer-inner {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;     /* Firefox */
+}
+@media (max-width: 800px) {
+  .footer {
+    height: 15vh !important;
+    max-height: 15vh !important;
+  }
+  .footer-inner {
+    max-height: 15vh!important;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
 }
