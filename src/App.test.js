@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-// Basic smoke test to ensure the home page renders expected content
-test('renders homepage heading', () => {
+// Ensure the header tagline is displayed on initial render
+test('renders header tagline', () => {
   render(<App />);
-  const heading = screen.getByText(/Innovative Tech Solutions/i);
-  expect(heading).toBeInTheDocument();
+  const tagline = screen.getByText(/Pioneering new technology across all industries\./i);
+  expect(tagline).toBeInTheDocument();
 });
