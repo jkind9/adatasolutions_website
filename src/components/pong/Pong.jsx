@@ -109,11 +109,23 @@ export default class App extends React.Component {
 
   checkBallBoundaries() {
     // dolna i górna ściana
-    if (
-      this.state.ballPosition.y + 20 >= this.bottomBoundary ||
-      this.state.ballPosition.y - 10 <= this.topBoundary
-    ) {
+    if (this.state.ballPosition.y + 20 > this.bottomBoundary) {
       this.setState({
+        ballPosition: {
+          ...this.state.ballPosition,
+          y: this.bottomBoundary - 20
+        },
+        move: {
+          stepX: this.state.move.stepX,
+          stepY: -1 * this.state.move.stepY
+        }
+      });
+    } else if (this.state.ballPosition.y - 10 < this.topBoundary) {
+      this.setState({
+        ballPosition: {
+          ...this.state.ballPosition,
+          y: this.topBoundary + 10
+        },
         move: {
           stepX: this.state.move.stepX,
           stepY: -1 * this.state.move.stepY
@@ -122,11 +134,23 @@ export default class App extends React.Component {
     }
 
     // lewa i prawa ściana
-    if (
-      this.state.ballPosition.x - 10 <= this.leftBoundary ||
-      this.state.ballPosition.x + 10 >= this.rightBoundary
-    ) {
+    if (this.state.ballPosition.x - 10 < this.leftBoundary) {
       this.setState({
+        ballPosition: {
+          ...this.state.ballPosition,
+          x: this.leftBoundary + 10
+        },
+        move: {
+          stepX: -1 * this.state.move.stepX,
+          stepY: this.state.move.stepY
+        }
+      });
+    } else if (this.state.ballPosition.x + 10 > this.rightBoundary) {
+      this.setState({
+        ballPosition: {
+          ...this.state.ballPosition,
+          x: this.rightBoundary - 10
+        },
         move: {
           stepX: -1 * this.state.move.stepX,
           stepY: this.state.move.stepY
