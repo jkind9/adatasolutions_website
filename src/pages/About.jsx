@@ -1,4 +1,4 @@
-// File: src/pages/Expertise.jsx
+// File: src/pages/About.jsx
 import React from 'react';
 import ScrollingBanner from '../components/UI/ScrollingBanner';
 import SlideContent from '../components/UI/SlideContent';
