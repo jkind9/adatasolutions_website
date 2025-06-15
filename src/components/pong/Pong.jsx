@@ -211,7 +211,7 @@ export default class App extends React.Component {
     } else if (event.key === "l") {
       this.setState({ p2: this.state.p2 + step });
     }
-    if (this.checkPlayer2Boundaries() === false) {
+    if (!this.checkPlayer2Boundaries()) {
       this.resetPlayer(2);
     }
   };
