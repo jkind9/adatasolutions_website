@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+// Basic smoke test to ensure the home page renders expected content
+test('renders homepage heading', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const heading = screen.getByText(/Innovative Tech Solutions/i);
+  expect(heading).toBeInTheDocument();
 });
