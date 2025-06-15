@@ -25,7 +25,7 @@ const slides = [
   {
     Component: ReferenceQuote,
     props: {
-      quote: 'Excellent contactor/consultant - genuinely loves his projects.',
+      quote: 'Excellent contractor/consultant - genuinely loves his projects.',
       author:
         'Jonathan Goulstine, CEO @ Ensign Advanced Systems Ltd',
     },
