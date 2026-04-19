@@ -76,7 +76,7 @@
         </a>
       {/each}
       <a
-        href="https://www.linkedin.com/in/jamesalexander-146239a4/"
+        href="https://www.linkedin.com/in/james-alexander-146239a4/"
         target="_blank"
         rel="noopener noreferrer"
         class="linkedin-btn"

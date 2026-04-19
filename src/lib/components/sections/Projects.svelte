@@ -187,10 +187,11 @@
   }
 
   .title-accent {
-    background: linear-gradient(135deg, var(--color-primary-light), var(--color-accent-light));
+    background: linear-gradient(135deg, #0891b2, #22d3ee);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    color: transparent;
   }
 
   .section-description {

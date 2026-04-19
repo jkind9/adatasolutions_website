@@ -47,7 +47,7 @@
 
             <div class="hero-cta">
               <Button
-                href="https://www.linkedin.com/in/jamesalexander-146239a4/"
+                href="https://www.linkedin.com/in/james-alexander-146239a4/"
                 target="_blank"
                 variant="primary"
               >
@@ -130,7 +130,7 @@
             </div>
           </div>
           <Button
-            href="https://www.linkedin.com/in/jamesalexander-146239a4/"
+            href="https://www.linkedin.com/in/james-alexander-146239a4/"
             target="_blank"
             variant="primary"
             size="lg"
