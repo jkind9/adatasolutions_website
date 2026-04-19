@@ -1,7 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { browser } from '$app/environment';
-  import { gsap } from 'gsap';
   import Button from '$lib/components/ui/Button.svelte';
   import NeuralNetwork from '$lib/components/ui/NeuralNetwork.svelte';
 
@@ -28,137 +27,124 @@
     if (!browser) return;
 
     mounted = true;
+    let interval: ReturnType<typeof setInterval>;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let tl: any = null;
 
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    const runAnimations = async () => {
+      // Dynamically import GSAP only on client
+      const { gsap } = await import('gsap');
 
-    // Set initial hidden states immediately
-    gsap.set('.hero-badge', { y: 40, opacity: 0, scale: 0.9, filter: 'blur(10px)' });
-    gsap.set('.char', { yPercent: 110, opacity: 0, rotateX: -90, filter: 'blur(8px)' });
-    gsap.set('.hero-tagline', { y: 40, opacity: 0, filter: 'blur(8px)' });
-    gsap.set('.hero-description', { y: 40, opacity: 0, filter: 'blur(6px)' });
-    gsap.set('.industry-badges', { y: 30, opacity: 0 });
-    gsap.set('.industry-item', { scale: 0.7, opacity: 0, y: 20 });
-    gsap.set('.hero-cta > *', { y: 30, opacity: 0, scale: 0.9, filter: 'blur(5px)' });
-    gsap.set('.stat', { y: 50, opacity: 0, scale: 0.8 });
+      const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
-    // GSAP Timeline for hero entrance with enhanced animations
-    const tl = gsap.timeline({ defaults: { ease: 'power4.out' }, delay: 0.1 });
+      // Set initial hidden states via GSAP
+      gsap.set('.hero-badge', { y: 30, opacity: 0, scale: 0.95 });
+      gsap.set('.char', { yPercent: 100, opacity: 0 });
+      gsap.set('.hero-tagline', { y: 30, opacity: 0 });
+      gsap.set('.hero-description', { y: 30, opacity: 0 });
+      gsap.set('.industry-badges', { y: 20, opacity: 0 });
+      gsap.set('.industry-item', { scale: 0.8, opacity: 0, y: 15 });
+      gsap.set('.hero-cta > *', { y: 20, opacity: 0, scale: 0.95 });
+      gsap.set('.stat', { y: 30, opacity: 0, scale: 0.9 });
 
-    // Animate badge with blur
-    tl.to('.hero-badge',
-      { y: 0, opacity: 1, scale: 1, filter: 'blur(0px)', duration: 1 }
-    );
+      // GSAP Timeline for hero entrance
+      tl = gsap.timeline({ defaults: { ease: 'power3.out' }, delay: 0.1 });
 
-    // Animate title characters with 3D rotation and blur
-    const titleChars = document.querySelectorAll('.char');
-    tl.to(titleChars,
-      {
-        yPercent: 0,
-        opacity: 1,
-        rotateX: 0,
-        filter: 'blur(0px)',
-        duration: 1.2,
-        stagger: 0.025,
-        ease: 'expo.out'
-      },
-      '-=0.5'
-    );
+      // Animate badge
+      tl.to('.hero-badge',
+        { y: 0, opacity: 1, scale: 1, duration: 0.6 }
+      );
 
-    // Animate tagline with blur
-    tl.to('.hero-tagline',
-      { y: 0, opacity: 1, filter: 'blur(0px)', duration: 0.9 },
-      '-=0.7'
-    );
+      // Animate title characters
+      const titleChars = document.querySelectorAll('.char');
+      tl.to(titleChars,
+        {
+          yPercent: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.02,
+          ease: 'power2.out'
+        },
+        '-=0.3'
+      );
 
-    // Animate description with blur
-    tl.to('.hero-description',
-      { y: 0, opacity: 1, filter: 'blur(0px)', duration: 0.9 },
-      '-=0.6'
-    );
+      // Animate tagline
+      tl.to('.hero-tagline',
+        { y: 0, opacity: 1, duration: 0.5 },
+        '-=0.4'
+      );
 
-    // Animate industry badges with stagger
-    tl.to('.industry-badges',
-      { y: 0, opacity: 1, duration: 0.6 },
-      '-=0.5'
-    );
+      // Animate description
+      tl.to('.hero-description',
+        { y: 0, opacity: 1, duration: 0.5 },
+        '-=0.3'
+      );
 
-    tl.to('.industry-item',
-      { scale: 1, opacity: 1, y: 0, duration: 0.5, stagger: 0.06, ease: 'back.out(1.7)' },
-      '-=0.4'
-    );
+      // Animate industry badges
+      tl.to('.industry-badges',
+        { y: 0, opacity: 1, duration: 0.4 },
+        '-=0.2'
+      );
 
-    // Animate CTA buttons with scale and blur
-    tl.to('.hero-cta > *',
-      { y: 0, opacity: 1, scale: 1, filter: 'blur(0px)', duration: 0.7, stagger: 0.12 },
-      '-=0.4'
-    );
+      tl.to('.industry-item',
+        { scale: 1, opacity: 1, y: 0, duration: 0.3, stagger: 0.04, ease: 'back.out(1.5)' },
+        '-=0.2'
+      );
 
-    // Animate stats with dramatic entrance
-    tl.to('.stat',
-      { y: 0, opacity: 1, scale: 1, duration: 0.7, stagger: 0.1, ease: 'back.out(1.4)' },
-      '-=0.4'
-    );
+      // Animate CTA buttons
+      tl.to('.hero-cta > *',
+        { y: 0, opacity: 1, scale: 1, duration: 0.4, stagger: 0.08 },
+        '-=0.2'
+      );
 
-    // Rotating tagline
-    const interval = setInterval(() => {
-      taglineIndex = (taglineIndex + 1) % taglines.length;
-    }, 3000);
+      // Animate stats
+      tl.to('.stat',
+        { y: 0, opacity: 1, scale: 1, duration: 0.4, stagger: 0.06, ease: 'back.out(1.2)' },
+        '-=0.2'
+      );
 
-    // Enhanced mouse parallax with quickTo for smoother tracking
-    let xToOrb1: gsap.QuickToFunc | null = null;
-    let yToOrb1: gsap.QuickToFunc | null = null;
-    let xToOrb2: gsap.QuickToFunc | null = null;
-    let yToOrb2: gsap.QuickToFunc | null = null;
-    let xToOrb3: gsap.QuickToFunc | null = null;
-    let yToOrb3: gsap.QuickToFunc | null = null;
+      // Mouse parallax for orbs (desktop only)
+      if (!isMobile) {
+        const orb1 = document.querySelector('.orb-1');
+        const orb2 = document.querySelector('.orb-2');
+        const orb3 = document.querySelector('.orb-3');
 
-    if (!isMobile) {
-      const orb1 = document.querySelector('.orb-1');
-      const orb2 = document.querySelector('.orb-2');
-      const orb3 = document.querySelector('.orb-3');
+        const xToOrb1 = orb1 ? gsap.quickTo(orb1, 'x', { duration: 0.8, ease: 'power3.out' }) : null;
+        const yToOrb1 = orb1 ? gsap.quickTo(orb1, 'y', { duration: 0.8, ease: 'power3.out' }) : null;
+        const xToOrb2 = orb2 ? gsap.quickTo(orb2, 'x', { duration: 1, ease: 'power3.out' }) : null;
+        const yToOrb2 = orb2 ? gsap.quickTo(orb2, 'y', { duration: 1, ease: 'power3.out' }) : null;
+        const xToOrb3 = orb3 ? gsap.quickTo(orb3, 'x', { duration: 1.2, ease: 'power3.out' }) : null;
+        const yToOrb3 = orb3 ? gsap.quickTo(orb3, 'y', { duration: 1.2, ease: 'power3.out' }) : null;
 
-      if (orb1) {
-        xToOrb1 = gsap.quickTo(orb1, 'x', { duration: 0.8, ease: 'power3.out' });
-        yToOrb1 = gsap.quickTo(orb1, 'y', { duration: 0.8, ease: 'power3.out' });
-      }
-      if (orb2) {
-        xToOrb2 = gsap.quickTo(orb2, 'x', { duration: 1, ease: 'power3.out' });
-        yToOrb2 = gsap.quickTo(orb2, 'y', { duration: 1, ease: 'power3.out' });
-      }
-      if (orb3) {
-        xToOrb3 = gsap.quickTo(orb3, 'x', { duration: 1.2, ease: 'power3.out' });
-        yToOrb3 = gsap.quickTo(orb3, 'y', { duration: 1.2, ease: 'power3.out' });
-      }
-    }
+        const handleMouseMove = (e: MouseEvent) => {
+          const { clientX, clientY } = e;
+          const { innerWidth, innerHeight } = window;
+          const x = (clientX / innerWidth - 0.5) * 2;
+          const y = (clientY / innerHeight - 0.5) * 2;
 
-    const handleMouseMove = (e: MouseEvent) => {
-      if (isMobile) return;
+          xToOrb1?.(x * 60);
+          yToOrb1?.(y * 60);
+          xToOrb2?.(x * -40);
+          yToOrb2?.(y * -40);
+          xToOrb3?.(x * 25);
+          yToOrb3?.(y * 25);
+        };
 
-      const { clientX, clientY } = e;
-      const { innerWidth, innerHeight } = window;
-      const x = (clientX / innerWidth - 0.5) * 2;
-      const y = (clientY / innerHeight - 0.5) * 2;
-
-      if (xToOrb1 && yToOrb1) {
-        xToOrb1(x * 60);
-        yToOrb1(y * 60);
-      }
-      if (xToOrb2 && yToOrb2) {
-        xToOrb2(x * -40);
-        yToOrb2(y * -40);
-      }
-      if (xToOrb3 && yToOrb3) {
-        xToOrb3(x * 25);
-        yToOrb3(y * 25);
+        window.addEventListener('mousemove', handleMouseMove);
       }
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
+    // Start animations
+    runAnimations();
+
+    // Rotating tagline
+    interval = setInterval(() => {
+      taglineIndex = (taglineIndex + 1) % taglines.length;
+    }, 3000);
 
     return () => {
       clearInterval(interval);
-      window.removeEventListener('mousemove', handleMouseMove);
-      tl.kill();
+      tl?.kill();
     };
   });
 
