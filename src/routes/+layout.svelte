@@ -1,16 +1,10 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
-  import { onMount } from 'svelte';
   import Header from '$lib/components/layout/Header.svelte';
   import Footer from '$lib/components/layout/Footer.svelte';
-  import { theme } from '$lib/stores/theme';
   import '../app.css';
 
   let { children } = $props();
-
-  onMount(() => {
-    theme.initialize();
-  });
 
   // Easter egg: Shift+A+S+D to access Pong game
   let keysPressed = $state(new Set<string>());

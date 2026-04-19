@@ -2,7 +2,6 @@
   import { page } from '$app/stores';
   import { browser } from '$app/environment';
   import MobileNav from './MobileNav.svelte';
-  import ThemeToggle from '$lib/components/ui/ThemeToggle.svelte';
 
   let scrolled = $state(false);
   let hidden = $state(false);
@@ -76,7 +75,6 @@
           {link.label}
         </a>
       {/each}
-      <ThemeToggle />
       <a
         href="https://www.linkedin.com/in/jamesalexander-146239a4/"
         target="_blank"
