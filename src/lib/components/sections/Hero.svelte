@@ -26,125 +26,16 @@
   onMount(() => {
     if (!browser) return;
 
+    // Trigger CSS animations by adding mounted class
     mounted = true;
-    let interval: ReturnType<typeof setInterval>;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    let tl: any = null;
-
-    const runAnimations = async () => {
-      // Dynamically import GSAP only on client
-      const { gsap } = await import('gsap');
-
-      const isMobile = window.matchMedia('(max-width: 768px)').matches;
-
-      // Set initial hidden states via GSAP
-      gsap.set('.hero-badge', { y: 30, opacity: 0, scale: 0.95 });
-      gsap.set('.char', { yPercent: 100, opacity: 0 });
-      gsap.set('.hero-tagline', { y: 30, opacity: 0 });
-      gsap.set('.hero-description', { y: 30, opacity: 0 });
-      gsap.set('.industry-badges', { y: 20, opacity: 0 });
-      gsap.set('.industry-item', { scale: 0.8, opacity: 0, y: 15 });
-      gsap.set('.hero-cta > *', { y: 20, opacity: 0, scale: 0.95 });
-      gsap.set('.stat', { y: 30, opacity: 0, scale: 0.9 });
-
-      // GSAP Timeline for hero entrance
-      tl = gsap.timeline({ defaults: { ease: 'power3.out' }, delay: 0.1 });
-
-      // Animate badge
-      tl.to('.hero-badge',
-        { y: 0, opacity: 1, scale: 1, duration: 0.6 }
-      );
-
-      // Animate title characters
-      const titleChars = document.querySelectorAll('.char');
-      tl.to(titleChars,
-        {
-          yPercent: 0,
-          opacity: 1,
-          duration: 0.8,
-          stagger: 0.02,
-          ease: 'power2.out'
-        },
-        '-=0.3'
-      );
-
-      // Animate tagline
-      tl.to('.hero-tagline',
-        { y: 0, opacity: 1, duration: 0.5 },
-        '-=0.4'
-      );
-
-      // Animate description
-      tl.to('.hero-description',
-        { y: 0, opacity: 1, duration: 0.5 },
-        '-=0.3'
-      );
-
-      // Animate industry badges
-      tl.to('.industry-badges',
-        { y: 0, opacity: 1, duration: 0.4 },
-        '-=0.2'
-      );
-
-      tl.to('.industry-item',
-        { scale: 1, opacity: 1, y: 0, duration: 0.3, stagger: 0.04, ease: 'back.out(1.5)' },
-        '-=0.2'
-      );
-
-      // Animate CTA buttons
-      tl.to('.hero-cta > *',
-        { y: 0, opacity: 1, scale: 1, duration: 0.4, stagger: 0.08 },
-        '-=0.2'
-      );
-
-      // Animate stats
-      tl.to('.stat',
-        { y: 0, opacity: 1, scale: 1, duration: 0.4, stagger: 0.06, ease: 'back.out(1.2)' },
-        '-=0.2'
-      );
-
-      // Mouse parallax for orbs (desktop only)
-      if (!isMobile) {
-        const orb1 = document.querySelector('.orb-1');
-        const orb2 = document.querySelector('.orb-2');
-        const orb3 = document.querySelector('.orb-3');
-
-        const xToOrb1 = orb1 ? gsap.quickTo(orb1, 'x', { duration: 0.8, ease: 'power3.out' }) : null;
-        const yToOrb1 = orb1 ? gsap.quickTo(orb1, 'y', { duration: 0.8, ease: 'power3.out' }) : null;
-        const xToOrb2 = orb2 ? gsap.quickTo(orb2, 'x', { duration: 1, ease: 'power3.out' }) : null;
-        const yToOrb2 = orb2 ? gsap.quickTo(orb2, 'y', { duration: 1, ease: 'power3.out' }) : null;
-        const xToOrb3 = orb3 ? gsap.quickTo(orb3, 'x', { duration: 1.2, ease: 'power3.out' }) : null;
-        const yToOrb3 = orb3 ? gsap.quickTo(orb3, 'y', { duration: 1.2, ease: 'power3.out' }) : null;
-
-        const handleMouseMove = (e: MouseEvent) => {
-          const { clientX, clientY } = e;
-          const { innerWidth, innerHeight } = window;
-          const x = (clientX / innerWidth - 0.5) * 2;
-          const y = (clientY / innerHeight - 0.5) * 2;
-
-          xToOrb1?.(x * 60);
-          yToOrb1?.(y * 60);
-          xToOrb2?.(x * -40);
-          yToOrb2?.(y * -40);
-          xToOrb3?.(x * 25);
-          yToOrb3?.(y * 25);
-        };
-
-        window.addEventListener('mousemove', handleMouseMove);
-      }
-    };
-
-    // Start animations
-    runAnimations();
 
     // Rotating tagline
-    interval = setInterval(() => {
+    const interval = setInterval(() => {
       taglineIndex = (taglineIndex + 1) % taglines.length;
     }, 3000);
 
     return () => {
       clearInterval(interval);
-      tl?.kill();
     };
   });
 
@@ -359,6 +250,115 @@
     }
   }
 
+  /* === ANIMATION KEYFRAMES === */
+  @keyframes fadeSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes charReveal {
+    from {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* === INITIAL HIDDEN STATES (before mounted) === */
+  .hero-badge,
+  .hero-tagline,
+  .hero-description,
+  .industry-badges,
+  .hero-cta,
+  .hero-stats {
+    opacity: 0;
+  }
+
+  .char {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  .industry-item,
+  .stat {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  /* === ANIMATED STATES (after mounted) === */
+  .hero-content.mounted .hero-badge {
+    animation: fadeSlideUp 0.6s ease-out forwards;
+    animation-delay: 0.1s;
+  }
+
+  .hero-content.mounted .char {
+    animation: charReveal 0.5s ease-out forwards;
+  }
+
+  .hero-content.mounted .hero-tagline {
+    animation: fadeSlideUp 0.5s ease-out forwards;
+    animation-delay: 0.8s;
+  }
+
+  .hero-content.mounted .hero-description {
+    animation: fadeSlideUp 0.5s ease-out forwards;
+    animation-delay: 1s;
+  }
+
+  .hero-content.mounted .industry-badges {
+    animation: fadeSlideUp 0.4s ease-out forwards;
+    animation-delay: 1.2s;
+  }
+
+  .hero-content.mounted .industry-item {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+
+  .hero-content.mounted .industry-item:nth-child(1) { animation-delay: 1.3s; }
+  .hero-content.mounted .industry-item:nth-child(2) { animation-delay: 1.35s; }
+  .hero-content.mounted .industry-item:nth-child(3) { animation-delay: 1.4s; }
+  .hero-content.mounted .industry-item:nth-child(4) { animation-delay: 1.45s; }
+  .hero-content.mounted .industry-item:nth-child(5) { animation-delay: 1.5s; }
+
+  .hero-content.mounted .hero-cta {
+    animation: fadeSlideUp 0.4s ease-out forwards;
+    animation-delay: 1.5s;
+  }
+
+  .hero-content.mounted .hero-stats {
+    animation: fadeSlideUp 0.4s ease-out forwards;
+    animation-delay: 1.7s;
+  }
+
+  .hero-content.mounted .stat {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+
+  .hero-content.mounted .stat:nth-child(1) { animation-delay: 1.8s; }
+  .hero-content.mounted .stat:nth-child(2) { animation-delay: 1.9s; }
+  .hero-content.mounted .stat:nth-child(3) { animation-delay: 2s; }
+  .hero-content.mounted .stat:nth-child(4) { animation-delay: 2.1s; }
+
   /* Badge */
   .hero-badge {
     display: inline-flex;
@@ -407,19 +407,13 @@
 
   .char {
     display: inline-block;
-    background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 50%, #a0a0a0 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #ffffff;
     transform-style: preserve-3d;
-    will-change: transform, opacity, filter;
+    will-change: transform, opacity;
   }
 
   .title-line.accent .char {
-    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--color-accent-light);
   }
 
   /* Tagline */
@@ -450,11 +444,8 @@
 
   .rotating-text {
     display: inline-block;
-    color: transparent;
+    color: var(--color-accent-light);
     font-weight: 700;
-    background: linear-gradient(90deg, var(--color-primary-light), var(--color-accent-light));
-    -webkit-background-clip: text;
-    background-clip: text;
     animation: taglineSlideUp 0.5s ease-out;
     white-space: nowrap;
   }
@@ -598,10 +589,7 @@
   }
 
   .stat-number {
-    background: linear-gradient(135deg, #fff, #ccc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #ffffff;
   }
 
   .stat-plus {
