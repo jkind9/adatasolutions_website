@@ -14,15 +14,15 @@ export const projects: Project[] = [
   {
     id: 'mclaren',
     title: 'McLaren Racing',
-    subtitle: '24h Insights & Predictive Maintenance',
+    subtitle: 'Zero-Shot Anomaly Detection at the Edge',
     description:
-      'Led the 24h Insights initiative delivering sensor setup to predictive models within 24 hours. Coordinated hardware engineers and data scientists to create predictive maintenance capabilities for production lines.',
-    technologies: ['Python', 'AWS', 'Computer Vision', 'Time Series', 'TensorFlow'],
+      'Sole developer for computer vision across all client work in the McLaren Accelerator program. Created a zero-shot, generalized anomaly detection pipeline (patent pending) running on the edge, CPU only, at 150+ FPS in 1080p.',
+    technologies: ['Python', 'Computer Vision', 'Anomaly Detection', 'Edge Deployment', 'PyTorch'],
     highlights: [
-      'Sensor data to actionable insights in 24 hours',
-      'Anomaly detection pipeline delivered in 3 days',
-      'Predictive maintenance reducing production failures',
-      'Led AI roadmap contribution for client partners'
+      'Anomaly detection on lines running 1000+ parts per minute, delivered in 3 days',
+      '5x reduction in unexpected downtime - ~10x ROI, $10m+ saved per year',
+      '~20% eOEE improvement for a global spirits company via bottle-cap defect detection',
+      'Second patent pending: zero-shot, CPU-only anomaly detection'
     ],
     image: '/images/RF.png',
     color: 'orange'

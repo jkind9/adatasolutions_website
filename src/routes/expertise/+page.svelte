@@ -37,11 +37,11 @@
     },
     {
       title: 'Computer Vision',
-      description: 'Patent-holding expert in seeing the world through machines.',
+      description: 'Patent-holding expert in seeing the world through machines - with a second patent pending.',
       paragraphs: [
-        'As first inventor of Patent GB2631290, I have developed revolutionary techniques for automated symbol extraction in construction schematics. This work was described as "revolutionary" by customers.',
-        'My expertise spans object detection (YOLO, RCNN), image segmentation, OCR, and custom embedding models. I have built systems using Triplet Loss Siamese Networks and CLIP for image similarity at scale.',
-        'From thermal imaging in defense systems at Excelitas to real-time production line monitoring at McLaren, my computer vision solutions operate in mission-critical environments where accuracy and speed are paramount.'
+        'As first inventor of granted Patent GB2631290, I have developed revolutionary techniques for automated construction-schematic cost estimation. This work was described as "revolutionary" by customers.',
+        'A second patent is pending for a zero-shot, CPU-only anomaly-detection framework: training-free, real-time at over 1000 FPS, with accuracy competitive with trained-GPU state of the art on public industrial-video benchmarks.',
+        'From thermal imaging in defense systems at Excelitas to real-time production line monitoring at 1000+ parts per minute for McLaren clients, my computer vision solutions operate in mission-critical environments - on the edge, CPU only, at 150+ FPS in 1080p.'
       ],
       images: ['/images/schematic.png', '/images/clip.png', '/images/triplet_loss.png', '/images/cheetir.png'],
       color: '#f97316'

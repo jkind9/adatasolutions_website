@@ -23,21 +23,21 @@
           <div class="hero-text">
             <span class="hero-label">About Me</span>
             <h1 class="hero-title">James Alexander</h1>
-            <p class="hero-subtitle">Senior Data Scientist & Patent Holder</p>
+            <p class="hero-subtitle">Senior Data Scientist & Patent Holder — Applied ML across the whole stack</p>
 
             <div class="hero-description">
               <p>
-                I'm an experienced data scientist and engineer who thrives on developing
-                new, innovative and intelligent solutions to complex problems. With a
-                focus on computer vision, machine learning and deep learning, I bring
-                a unique combination of theoretical knowledge and practical experience
-                to every project.
+                I'm an applied ML engineer working across the whole stack: computer vision,
+                anomaly detection, agentic AI, and data engineering. I hold one granted
+                patent (GB2631290), with a second pending for a zero-shot, CPU-only
+                anomaly-detection framework that runs training-free in real time at over
+                1000 FPS.
               </p>
               <p>
                 My journey began at BAE Systems, where I developed a modelling solution
                 for naval vessel power consumption with unprecedented precision. Since then,
                 I've worked across defense, financial services, construction technology,
-                and now Formula 1 consulting.
+                manufacturing, and now Formula 1 consulting with McLaren Racing.
               </p>
               <p>
                 As a contractor outside IR35, I offer the flexibility and expertise that
@@ -78,12 +78,12 @@
       <ScrollReveal>
         <div class="stats-grid">
           <div class="stat-item">
-            <span class="stat-value">8+</span>
+            <span class="stat-value">9+</span>
             <span class="stat-label">Years Experience</span>
           </div>
           <div class="stat-item">
-            <span class="stat-value">1</span>
-            <span class="stat-label">Patent Held</span>
+            <span class="stat-value">2</span>
+            <span class="stat-label">Patents (1 Granted, 1 Pending)</span>
           </div>
           <div class="stat-item">
             <span class="stat-value">6+</span>

@@ -8,7 +8,7 @@
       name: 'Computer Vision',
       icon: '👁️',
       description:
-        'Patent holder. OpenCV, YOLO, RCNN, object detection, OCR, image processing, custom embeddings'
+        'Patent holder, second pending. OpenCV, Ultralytics, PyTorch - object detection, OCR, zero-shot anomaly detection'
     },
     {
       name: 'NumPy',
@@ -114,10 +114,13 @@
       <div class="highlight-box">
         <div class="highlight-icon">🏆</div>
         <div class="highlight-content">
-          <h3 class="highlight-title">Patent Holder</h3>
+          <h3 class="highlight-title">Patent Holder — Second Pending</h3>
           <p class="highlight-text">
-            First inventor of <strong>Patent GB2631290</strong> - Computer Vision for automated symbol
-            extraction in construction schematics, described as "revolutionary" by customers.
+            First inventor of granted <strong>Patent GB2631290</strong> - Computer Vision for automated
+            construction-schematic cost estimation, described as "revolutionary" by customers. A second
+            patent is pending for a <strong>zero-shot, CPU-only anomaly detection framework</strong> -
+            training-free, real-time at over 1000 FPS, with accuracy competitive with trained-GPU
+            state of the art on public industrial-video benchmarks.
           </p>
         </div>
       </div>

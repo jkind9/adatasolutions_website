@@ -18,7 +18,7 @@ export const skillCategories: SkillCategory[] = [
     color: 'red',
     skills: [
       { name: 'Neural Networks', level: 95, description: 'Deep learning architectures, CNNs, RNNs, Transformers' },
-      { name: 'Computer Vision', level: 95, description: 'Object detection, image processing, OCR, YOLO, RCNN' },
+      { name: 'Computer Vision', level: 95, description: 'OpenCV, Ultralytics, PyTorch - object detection, OCR, zero-shot anomaly detection' },
       { name: 'NLP', level: 90, description: 'Text processing, sentiment analysis, named entity recognition' },
       { name: 'RAG Pipelines', level: 88, description: 'Retrieval-augmented generation, vector databases, embeddings' },
       { name: 'Agentic AI', level: 85, description: 'Custom frameworks for self-hostable models like Llama' }
@@ -63,7 +63,8 @@ export const skillCategories: SkillCategory[] = [
 ];
 
 export const certifications = [
-  { name: 'Patent GB2631290', description: 'Computer Vision - Symbol Extraction', year: 2024 }
+  { name: 'Patent GB2631290 (Granted)', description: 'Computer Vision - Automated construction-schematic cost estimation', year: 2024 },
+  { name: 'Patent Pending', description: 'Zero-shot, CPU-only anomaly detection - training-free, real-time at >1000 FPS', year: 2026 }
 ];
 
 export const programmingLanguages = [

@@ -97,7 +97,7 @@
         I don't just solve problems — I <span class="highlight">generate ideas</span> that transform businesses.
         From <span class="highlight">Formula 1</span> to <span class="highlight">Defense</span>,
         <span class="highlight">Banking</span> to <span class="highlight">Manufacturing</span> —
-        I bring fresh thinking to every industry. Patent holder. Innovator. Results-driven.
+        I bring fresh thinking to every industry. One patent granted, a second pending. Results-driven.
       </p>
 
       <!-- Industry badges -->
@@ -138,14 +138,14 @@
         </div>
         <div class="stat">
           <span class="stat-value">
-            <span class="stat-number">1</span>
+            <span class="stat-number">2</span>
           </span>
-          <span class="stat-label">Patent</span>
+          <span class="stat-label">Patents (1 granted, 1 pending)</span>
           <div class="stat-bar"></div>
         </div>
         <div class="stat">
           <span class="stat-value">
-            <span class="stat-number">8</span>
+            <span class="stat-number">9</span>
             <span class="stat-plus">+</span>
           </span>
           <span class="stat-label">Years</span>

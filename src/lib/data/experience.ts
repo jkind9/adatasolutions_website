@@ -21,15 +21,14 @@ export const experiences: Experience[] = [
     startDate: 'August 2025',
     endDate: 'Current',
     description:
-      'Part of the consulting branch working with sponsors. Responsible for coordination and delivery of analysis and products designed to improve client efficiency and reduce production line failures.',
+      'Senior developer in Purple Sector, the subcontractor for the McLaren Accelerator program, consulting for sponsors. Established as a leading expert in computer vision and data analysis, and now the sole developer responsible for computer vision support across all client work.',
     achievements: [
-      'Led 24h insights analysis for new clients - from sensor setup to predictive models in 24 hours',
-      "Led McLaren's contribution to client AI roadmaps with computer vision health metrics",
-      'Created standardized video toolkit handling terabytes of data for anomaly detection',
-      'Led predictive maintenance project coordinating hardware engineers and data scientists',
-      'Delivered anomaly detection pipeline in 3 days for 1000ppm production line'
+      'Delivered an anomaly detection suite for a global food manufacturer in 3 days on lines running 1000+ parts per minute - reduced unexpected downtime 5x, ~10x ROI, saving well over $10m per year',
+      "Led bottle-cap deformity detection for one of the world's largest spirits companies - demonstrated on site within 24 hours and improved eOEE by ~20% on their worst performing product",
+      'Created a zero-shot generalized anomaly detection pipeline (patent pending), extended to zero-shot anomaly classification',
+      'Sole Data Scientist across all projects - anomaly detection running on the edge, CPU only, at 150+ FPS in 1080p'
     ],
-    technologies: ['Python', 'AWS', 'Computer Vision', 'Machine Learning', 'Time Series']
+    technologies: ['Python', 'Computer Vision', 'Anomaly Detection', 'Machine Learning', 'Edge Deployment']
   },
   {
     id: 'intrum',
@@ -57,9 +56,9 @@ export const experiences: Experience[] = [
     startDate: 'September 2022',
     endDate: 'January 2024',
     description:
-      'Led computer vision projects with patent-pending innovation. Managed development teams for both front-end and back-end systems.',
+      'Led computer vision projects with patented innovation. Managed development teams for both front-end and back-end systems.',
     achievements: [
-      'Patent pending for smart auto-counting methodology described as "revolutionary"',
+      'Patent granted (GB2631290) for smart auto-counting methodology described as "revolutionary" by customers',
       'Project lead managing GUI developers and backend infrastructure teams',
       'Developed automated symbol extraction for construction schematics'
     ],
