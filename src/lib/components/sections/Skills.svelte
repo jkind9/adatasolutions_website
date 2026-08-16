@@ -118,9 +118,10 @@
           <p class="highlight-text">
             First inventor of granted <strong>Patent GB2631290</strong> - Computer Vision for automated
             construction-schematic cost estimation, described as "revolutionary" by customers. A second
-            patent is pending for a <strong>zero-shot, CPU-only anomaly detection framework</strong> -
-            training-free, real-time at over 1000 FPS, with accuracy competitive with trained-GPU
-            state of the art on public industrial-video benchmarks.
+            patent is pending for <strong>phase awareness</strong> - using cyclic video to monitor chaos
+            over time, finding not just what looks different, but what looks relevant. Training-free and
+            CPU-only, it benchmarks at over 1000 FPS with accuracy competitive with trained-GPU state of
+            the art, and runs in production at 150+ FPS in full 1080p on edge hardware.
           </p>
         </div>
       </div>

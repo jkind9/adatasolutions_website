@@ -16,13 +16,13 @@ export const projects: Project[] = [
     title: 'McLaren Racing',
     subtitle: 'Zero-Shot Anomaly Detection at the Edge',
     description:
-      'Sole developer for computer vision across all client work in the McLaren Accelerator program. Created a zero-shot, generalized anomaly detection pipeline (patent pending) running on the edge, CPU only, at 150+ FPS in 1080p.',
+      'Sole developer for computer vision across all client work in the McLaren Accelerator program. Created the patent-pending phase awareness framework - using cyclic video to monitor chaos over time and find not just what looks different, but what looks relevant - deployed in production on CPU-only edge hardware at 150+ FPS in full 1080p.',
     technologies: ['Python', 'Computer Vision', 'Anomaly Detection', 'Edge Deployment', 'PyTorch'],
     highlights: [
       'Anomaly detection on lines running 1000+ parts per minute, delivered in 3 days',
       '5x reduction in unexpected downtime - ~10x ROI, $10m+ saved per year',
       '~20% eOEE improvement for a global spirits company via bottle-cap defect detection',
-      'Second patent pending: zero-shot, CPU-only anomaly detection'
+      'Second patent pending: phase awareness for cyclic video'
     ],
     image: '/images/RF.png',
     color: 'orange'

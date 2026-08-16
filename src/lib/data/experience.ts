@@ -25,7 +25,7 @@ export const experiences: Experience[] = [
     achievements: [
       'Delivered an anomaly detection suite for a global food manufacturer in 3 days on lines running 1000+ parts per minute - reduced unexpected downtime 5x, ~10x ROI, saving well over $10m per year',
       "Led bottle-cap deformity detection for one of the world's largest spirits companies - demonstrated on site within 24 hours and improved eOEE by ~20% on their worst performing product",
-      'Created a zero-shot generalized anomaly detection pipeline (patent pending), extended to zero-shot anomaly classification',
+      'Created the patent-pending phase awareness framework - using cyclic video to monitor chaos over time and find not just what looks different, but what looks relevant',
       'Sole Data Scientist across all projects - anomaly detection running on the edge, CPU only, at 150+ FPS in 1080p'
     ],
     technologies: ['Python', 'Computer Vision', 'Anomaly Detection', 'Machine Learning', 'Edge Deployment']

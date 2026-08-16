@@ -64,7 +64,7 @@ export const skillCategories: SkillCategory[] = [
 
 export const certifications = [
   { name: 'Patent GB2631290 (Granted)', description: 'Computer Vision - Automated construction-schematic cost estimation', year: 2024 },
-  { name: 'Patent Pending', description: 'Zero-shot, CPU-only anomaly detection - training-free, real-time at >1000 FPS', year: 2026 }
+  { name: 'Patent Pending', description: 'Phase awareness - using cyclic video to monitor chaos over time, finding not just what looks different, but what looks relevant', year: 2026 }
 ];
 
 export const programmingLanguages = [

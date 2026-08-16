@@ -5,7 +5,8 @@
     { name: 'Danone', logo: '/images/danone.png', hasBackground: false },
     { name: 'Diageo', logo: '/images/diageo.webp', hasBackground: false },
     { name: 'Nestlé Purina', logo: '/images/nestle-purina.png', hasBackground: false },
-    { name: 'Sanofi', logo: '/images/sanofi.png', hasBackground: true }
+    { name: 'Sanofi', logo: '/images/sanofi.png', hasBackground: true },
+    { name: 'TMICC', logo: '/images/tmicc.png', hasBackground: false }
   ];
 </script>
 

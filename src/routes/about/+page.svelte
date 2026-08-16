@@ -29,9 +29,9 @@
               <p>
                 I'm an applied ML engineer working across the whole stack: computer vision,
                 anomaly detection, agentic AI, and data engineering. I hold one granted
-                patent (GB2631290), with a second pending for a zero-shot, CPU-only
-                anomaly-detection framework that runs training-free in real time at over
-                1000 FPS.
+                patent (GB2631290), with a second pending for phase awareness - using
+                cyclic video to monitor chaos over time and find not just what looks
+                different, but what looks relevant.
               </p>
               <p>
                 My journey began at BAE Systems, where I developed a modelling solution

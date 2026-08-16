@@ -39,9 +39,9 @@
       title: 'Computer Vision',
       description: 'Patent-holding expert in seeing the world through machines - with a second patent pending.',
       paragraphs: [
-        'As first inventor of granted Patent GB2631290, I have developed revolutionary techniques for automated construction-schematic cost estimation. This work was described as "revolutionary" by customers.',
-        'A second patent is pending for a zero-shot, CPU-only anomaly-detection framework: training-free, real-time at over 1000 FPS, with accuracy competitive with trained-GPU state of the art on public industrial-video benchmarks.',
-        'From thermal imaging in defense systems at Excelitas to real-time production line monitoring at 1000+ parts per minute for McLaren clients, my computer vision solutions operate in mission-critical environments - on the edge, CPU only, at 150+ FPS in 1080p.'
+        'As first inventor of granted Patent GB2631290, I developed techniques for automated construction-schematic cost estimation that customers described as revolutionary.',
+        'A second patent is pending for phase awareness: using cyclic video to monitor chaos over time, finding not just what looks different, but what looks relevant. Training-free and CPU-only, it benchmarks at over 1000 FPS with accuracy competitive with trained-GPU state of the art on public industrial-video benchmarks.',
+        'From thermal imaging in defense systems at Excelitas to real-time production line monitoring at 1000+ parts per minute for McLaren clients, my computer vision solutions operate in mission-critical environments - deployed in production on CPU-only edge hardware at 150+ FPS in full 1080p.'
       ],
       images: ['/images/schematic.png', '/images/clip.png', '/images/triplet_loss.png', '/images/cheetir.png'],
       color: '#f97316'

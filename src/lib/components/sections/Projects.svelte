@@ -99,13 +99,6 @@
                 {/each}
               </div>
 
-              <!-- Impact indicator -->
-              <div class="impact-bar">
-                <span class="impact-label">Impact</span>
-                <div class="impact-track">
-                  <div class="impact-fill"></div>
-                </div>
-              </div>
             </div>
           </article>
         </FadeIn>
@@ -431,59 +424,6 @@
     margin-bottom: 1.5rem;
   }
 
-  /* Impact bar */
-  .impact-bar {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .impact-label {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-text-muted);
-  }
-
-  .impact-track {
-    flex: 1;
-    height: 3px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 2px;
-    overflow: hidden;
-  }
-
-  .impact-fill {
-    height: 100%;
-    width: 0;
-    border-radius: 2px;
-    animation: impactGrow 1.5s ease-out forwards;
-    animation-delay: 0.5s;
-  }
-
-  .project-red .impact-fill {
-    background: linear-gradient(90deg, #f97316, #ea580c);
-    width: 95%;
-  }
-  .project-blue .impact-fill {
-    background: linear-gradient(90deg, #3b82f6, #2563eb);
-    width: 90%;
-  }
-  .project-green .impact-fill {
-    background: linear-gradient(90deg, #22c55e, #16a34a);
-    width: 100%;
-  }
-  .project-orange .impact-fill {
-    background: linear-gradient(90deg, #f97316, #ea580c);
-    width: 85%;
-  }
-
-  @keyframes impactGrow {
-    from {
-      width: 0;
-    }
-  }
-
   /* CTA Section */
   .projects-cta {
     text-align: center;
@@ -523,10 +463,6 @@
 
   :global([data-theme="light"]) .project-overlay {
     background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.9) 100%);
-  }
-
-  :global([data-theme="light"]) .impact-track {
-    background: rgba(26, 54, 93, 0.1);
   }
 
   :global([data-theme="light"]) .projects-cta {
