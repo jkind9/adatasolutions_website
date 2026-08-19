@@ -1,7 +1,7 @@
 ---
 id: "02"
 title: Add View CV button to header and redeploy
-status: in_progress
+status: closed
 priority: MED
 type: infra
 blocked_by: []
@@ -72,9 +72,6 @@ invariants n/a: static marketing site, no state, single build artifact deployed 
 docs n/a: header button is self-evident site chrome; README documents dev setup, not page content.
 
 ## Receipts
-
-_(filled in when the task is closed — leave the (fill in) markers until then; a blank value
-cell also counts as unfilled, so deleting a marker is not filling it in)_
 
 | field | value |
 |---|---|
