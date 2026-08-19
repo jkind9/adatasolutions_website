@@ -78,12 +78,12 @@ cell also counts as unfilled, so deleting a marker is not filling it in)_
 
 | field | value |
 |---|---|
-| closing commit | (fill in) |
-| files changed | (fill in) |
-| test | (fill in) |
-| before / after | (fill in) |
-| result | (fill in) |
+| closing commit | 55dcbfc |
+| files changed | Header.svelte, MobileNav.svelte, static/James-Alexander-CV.pdf (+ this task file) |
+| test | tests n/a: markup/CSS-only change, no test harness in repo; verified via production build |
+| before / after | before: 0 CV links in nav; after: "View CV" button in desktop nav + mobile menu, PDF in build output |
+| result | build green (`vite build` 2.3s), pushed to master 6e95bb5..55dcbfc; hosting redeploys on push |
 
 Notes / caveats / follow-ups:
 
--
+- CV served at /James-Alexander-CV.pdf; replace static/James-Alexander-CV.pdf when the CV is updated.
